@@ -33,9 +33,9 @@ scoreboard players operation $xp_consumption.levels pk.temp = $distance pk.temp
 scoreboard players operation $xp_consumption.levels pk.temp /= $pk.waystones.settings.xp_consumption.blocks pk.value
 
 # Set required levels to item's data
-execute store result storage pk:common temp.gui.item.components."minecraft:custom_data".pk_data.required_levels int 1 run scoreboard players get $xp_consumption.levels pk.temp
+execute store result storage pk:common temp.gui.item.tag.pk_data.required_levels int 1 run scoreboard players get $xp_consumption.levels pk.temp
 
 # Set required levels in lore
 execute if score $xp_consumption.levels pk.temp <= $player.level pk.temp run data modify block ~ ~-1 ~ front_text.messages[0] set value '[{"text":"Requires ","color":"green","italic":false},{"score":{"name":"$xp_consumption.levels","objective":"pk.temp"}},{"text":" level(s) for teleportation"}]'
 execute if score $xp_consumption.levels pk.temp > $player.level pk.temp run data modify block ~ ~-1 ~ front_text.messages[0] set value '[{"text":"Requires ","color":"red","italic":false},{"score":{"name":"$xp_consumption.levels","objective":"pk.temp"}},{"text":" level(s) for teleportation"}]'
-data modify storage pk:common temp.gui.item.components."minecraft:lore" append from block ~ ~-1 ~ front_text.messages[0]
+data modify storage pk:common temp.gui.item.tag.display.Lore append from block ~ ~-1 ~ front_text.messages[0]

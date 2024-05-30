@@ -1,7 +1,7 @@
 #> pk_waystones:blocks/waystone/use/gui/build/toolbar/buttons/visibility/public
 
 # Prepare item's default data
-data modify storage pk:common temp.gui.item set value {id:"minecraft:leather_helmet",count:1,components:{"minecraft:custom_name":'[{"text":"Visibility: ","italic":false},{"text":"Public","color":"green","italic":false}]',"minecraft:dyed_color":{rgb:8439583,show_in_tooltip:false},"minecraft:attribute_modifiers":{modifiers:[],show_in_tooltip:false},"minecraft:trim":{material:"minecraft:emerald",pattern:"minecraft:sentry",show_in_tooltip:false},"minecraft:custom_data":{pk_data:{gui:1b,from:"waystones",trigger:"visibility/change",trigger_params:{allowed:1b}}},"minecraft:custom_model_data":11130062},Slot:21b}
+data modify storage pk:common temp.gui.item set value {Slot:21b,id:"minecraft:leather_helmet",Count:1b,tag:{Trim:{material:"minecraft:emerald",pattern:"minecraft:sentry"},display:{Name:'[{"text":"Visibility: ","italic":false},{"text":"Public","color":"green","italic":false}]',color:8439583},HideFlags:255,CustomModelData:11130062,pk_data:{gui:1b,from:"waystones",trigger:"visibility/change",trigger_params:{allowed:1b}}}}
 
 # Check permissions to define the trigger
 #   Score $next_visibility: Public: 1 | Private: 2 | Discover: 3

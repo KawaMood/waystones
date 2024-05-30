@@ -6,8 +6,8 @@
 #      @within pk_waystones:blocks/waystone/use/gui/actions/put/accepted/shared_with/run
 
 # Return item to user if not allowed to put it
-data modify storage pk:common params set value {components:{}}
+data modify storage pk:common params set value {tag:""}
 data modify storage pk:common params.id set from storage pk:common temp.gui.accepted_item.id
-data modify storage pk:common params.count set from storage pk:common temp.gui.accepted_item.count
-data modify storage pk:common params.components set from storage pk:common temp.gui.accepted_item.components
+data modify storage pk:common params.count set from storage pk:common temp.gui.accepted_item.Count
+data modify storage pk:common params.tag set from storage pk:common temp.gui.accepted_item.tag
 function pk_waystones:packages/dynamic_item/give with storage pk:common params

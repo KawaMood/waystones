@@ -8,7 +8,7 @@
 #   y (int): y coordinate
 #   z (int): z coordinate
 #   dimension (string): dimension id
-# discovered_by (list of entries): list of players having interacted with this Waystone
+# discovered_by (array): list of players having interacted with this Waystone
 #   (entry)
 #      uuid (4 int array): UUID of a player
 # shared_with (list of entries): list of players that can use this Waystone if the visibility is on "private"

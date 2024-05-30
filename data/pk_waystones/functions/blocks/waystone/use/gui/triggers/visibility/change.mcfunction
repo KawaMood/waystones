@@ -11,7 +11,7 @@ function pk_waystones:blocks/waystone/use/gui/triggers/visibility/check_permissi
 execute if score $trigger.stop pk.temp matches 1 run return 0
 
 # Update data
-data modify storage pk:common temp.used_waystone.visibility set from storage pk:common temp.gui.clicked_item.components."minecraft:custom_data".pk_data.trigger_params.visibility
+data modify storage pk:common temp.used_waystone.visibility set from storage pk:common temp.gui.clicked_item.tag.pk_data.trigger_params.visibility
 function pk_waystones:blocks/waystone/use/data/used_waystone/update
 
 # Update the GUI

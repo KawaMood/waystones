@@ -5,4 +5,4 @@ scoreboard players operation @s pk.custom_block.component.id = $temp pk.custom_b
 tag @s add pk.waystones.waystone.lock
 tag @s add pk.custom_block.lock
 tag @s add pk.custom_block.lock.monsters_nearby
-data merge entity @s {width:1.002f,height:1.002f,response:1b}
+data merge entity @s {width:1.001f,height:1.001f,response:1b}

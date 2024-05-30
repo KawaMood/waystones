@@ -10,17 +10,17 @@ data modify storage pk:common temp.waystone set value {variant:"regular",visibil
 data modify storage pk:common temp.waystone.id set from storage pk:common temp.command.params.waystone.id
 execute unless data storage pk:common temp.waystone.id store result storage pk:common temp.waystone.id int 1 run scoreboard players get $temp pk.custom_block.component.id
 # Variant
-data modify storage pk:common temp.waystone.variant set from storage pk:common temp.command.params.waystone.variant
+execute if data storage pk:common temp.command.params.waystone.variant run data modify storage pk:common temp.waystone.variant set from storage pk:common temp.command.params.waystone.variant
 # Name
-data modify storage pk:common temp.waystone.name set from storage pk:common temp.command.params.waystone.name
+execute if data storage pk:common temp.command.params.waystone.name run data modify storage pk:common temp.waystone.name set from storage pk:common temp.command.params.waystone.name
 # Protection
-data modify storage pk:common temp.waystone.protected set from storage pk:common temp.command.params.waystone.protected
+execute if data storage pk:common temp.command.params.waystone.protected run data modify storage pk:common temp.waystone.protected set from storage pk:common temp.command.params.waystone.protected
 # Visibility
-data modify storage pk:common temp.waystone.visibility set from storage pk:common temp.command.params.waystone.visibility
+execute if data storage pk:common temp.command.params.waystone.visibility run data modify storage pk:common temp.waystone.visibility set from storage pk:common temp.command.params.waystone.visibility
 # Owner
-data modify storage pk:common temp.waystone.owner set from storage pk:common temp.command.params.waystone.owner
+execute if data storage pk:common temp.command.params.waystone.owner run data modify storage pk:common temp.waystone.owner set from storage pk:common temp.command.params.waystone.owner
 # Location
-data modify storage pk:common temp.waystone.location.dimension set from storage pk:common temp.command.params.waystone.location.dimension
+execute if data storage pk:common temp.command.params.waystone.location.dimension run data modify storage pk:common temp.waystone.location.dimension set from storage pk:common temp.command.params.waystone.location.dimension
 execute summon marker run function pk_waystones:blocks/waystone/place/data/store_from_command_placement/set_location
 # Discovered by
 execute if data storage pk:common temp.command.params.waystone.discovered_by[{}] run data modify storage pk:common temp.waystone.discovered_by set from storage pk:common temp.command.params.waystone.discovered_by

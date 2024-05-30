@@ -5,7 +5,7 @@ execute unless data storage pk:common temp.packages.dynamic_item.entity_data.Mot
 execute if data storage pk:common temp.packages.dynamic_item{apply_random_motion:1b} run function pk_waystones:packages/dynamic_item/drop/apply_random_motion
 
 # Set default Count and id
-execute unless data storage pk:common temp.packages.dynamic_item.entity_data.Item.count run data modify storage pk:common temp.packages.dynamic_item.entity_data.Item.count set value 1
+execute unless data storage pk:common temp.packages.dynamic_item.entity_data.Item.Count run data modify storage pk:common temp.packages.dynamic_item.entity_data.Item.Count set value 1b
 execute unless data storage pk:common temp.packages.dynamic_item.entity_data.Item.id run data modify storage pk:common temp.packages.dynamic_item.entity_data.Item.id set value "minecraft:air"
 
 # Summon item

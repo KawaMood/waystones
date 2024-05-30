@@ -16,5 +16,8 @@ data remove storage pk:common update
 #   Waystones
 function pk_waystones:base/update/from_v2/blocks/start {source:"pk.waystones:data Blocks.Waystones",block_id:"waystone"}
 
+# Force to update stored players (that are online)
+execute as @a at @s run function pk_waystones:events/player/joined_back/after_2_seconds
+
 # Recreate all blocks
-function pk_waystones:tools/debug/recreate_all_blocks/start {source:"pk:waystones database.waystones", block_id:"waystone", fallback: "function pk_waystones:base/update/from_v2/after_recreated_all_blocks"}
+function pk_waystones:tools/debug/recreate_all_blocks/start {source:"pk:waystones database.waystones", block_id:"waystone", fallback: "function pk_waystones:base/update/from_v2/stop"}

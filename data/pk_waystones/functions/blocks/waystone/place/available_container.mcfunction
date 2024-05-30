@@ -3,7 +3,7 @@
 
 # Set container
 setblock ~ ~ ~ air
-setblock ~ ~ ~ barrel[facing=down]{CustomName:'{"text":"Waystone"}',Items:[{id:"minecraft:light_gray_stained_glass_pane",count:1,components:{"minecraft:custom_data":{pk_data:{custom_block:1b,id:"waystone",from:"waystones",gui:1b,in_use:0b}}},Slot:0b}]}
+setblock ~ ~ ~ barrel[facing=down]{CustomName:'{"text":"Waystone"}',Items:[{id:"minecraft:light_gray_stained_glass_pane",Count:1b,tag:{pk_data:{custom_block:1b,id:"waystone",from:"waystones",gui:1b,in_use:0b}},Slot:0b}]}
 
 # Prepare container custom name
 data modify storage pk:common params set value {p1:"data modify storage pk:common temp.custom_name set from storage pk:waystones database.waystones[{id:",p2:"}].name"}

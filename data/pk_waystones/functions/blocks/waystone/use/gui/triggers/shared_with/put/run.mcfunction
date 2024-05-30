@@ -11,13 +11,13 @@ function pk_waystones:blocks/waystone/use/gui/triggers/shared_with/check_permiss
 execute if score $trigger.stop pk.temp matches 1 run return 0
 
 # Cancel if accepted item doesn't contain the excpected data
-execute unless data storage pk:common temp.gui.accepted_item.components."minecraft:writable_book_content".pages[0] run function pk_waystones:blocks/waystone/use/gui/triggers/cancel {reason:"There's nothing written in this book"}
+execute unless data storage pk:common temp.gui.accepted_item.tag.pages[0] run function pk_waystones:blocks/waystone/use/gui/triggers/cancel {reason:"There's nothing written in this book"}
 execute if score $trigger.stop pk.temp matches 1 run return 0
 
 # Prepare new shared_with array
 data modify storage pk:common temp.new.shared_with set value []
 data modify storage pk:common temp.array_1 set value []
-data modify storage pk:common temp.array_1 append from storage pk:common temp.gui.accepted_item.components."minecraft:writable_book_content".pages[].raw
+data modify storage pk:common temp.array_1 append from storage pk:common temp.gui.accepted_item.tag.pages[]
 execute if data storage pk:common temp.array_1[-1] run function pk_waystones:blocks/waystone/use/gui/triggers/shared_with/put/pages_filter_recursive
 
 # Update data

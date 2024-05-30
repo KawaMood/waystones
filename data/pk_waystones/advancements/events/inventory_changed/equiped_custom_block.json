@@ -10,12 +10,7 @@
                         "predicate": {
                             "equipment": {
                                 "head": {
-                                    "count": {
-                                        "min": 1
-                                    },
-                                    "predicates": {
-                                        "minecraft:custom_data": "{pk_data:{custom_block:1b,from:\"waystones\"}}"
-                                    }
+                                    "nbt": "{pk_data:{custom_block:1b,id:\"waystone\"}}"
                                 }
                             }
                         }

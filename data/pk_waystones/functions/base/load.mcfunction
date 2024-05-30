@@ -31,6 +31,7 @@ scoreboard objectives add pk.temp dummy
 scoreboard objectives add pk.value dummy
 scoreboard objectives add pk.custom_block.component.id dummy
 scoreboard objectives add pk.custom_block.interaction.id dummy
+scoreboard objectives add pk.crafted.knowledge_book crafted:knowledge_book
 
 # Define objective that are specific to the current data pack
 #   Tracking players actions:
@@ -60,7 +61,7 @@ function pk_waystones:packages/air_toggling/load
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Updates:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-function pk_waystones:base/update/start
+execute unless score $pk.waystones.version pk.value matches 30205.. run function pk_waystones:base/update/start
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Logs:

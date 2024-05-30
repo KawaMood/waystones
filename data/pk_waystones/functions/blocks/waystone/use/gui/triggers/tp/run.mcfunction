@@ -14,7 +14,7 @@ data modify block ~ ~ ~ Items set from storage pk:common temp.gui.prev_tick_item
 # Store data of the targeted waystone
 data remove storage pk:common temp.targeted_waystone
 data modify storage pk:common params set value {p1:"data modify storage pk:common temp.targeted_waystone set from storage pk:waystones database.waystones[{id:",p2:"}]"}
-data modify storage pk:common params.v1 set from storage pk:common temp.gui.clicked_item.components."minecraft:custom_data".pk_data.waystone.id
+data modify storage pk:common params.v1 set from storage pk:common temp.gui.clicked_item.tag.pk_data.waystone.id
 function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
 
 # Stop if targeted waystone is not found

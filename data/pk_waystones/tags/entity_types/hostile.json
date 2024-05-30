@@ -1,10 +1,8 @@
 {
-    "_version": "1.20.5",
+    "_version": "1.19.4",
     "replace": false,
     "values": [
         "minecraft:blaze",
-        "minecraft:bogged",
-        "minecraft:breeze",
         "minecraft:cave_spider",
         "minecraft:creeper",
         "minecraft:drowned",

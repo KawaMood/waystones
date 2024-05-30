@@ -9,4 +9,4 @@ tag @s add pk.custom_block.lock
 tag @s add pk.custom_block.lock.in_use
 
 # Set data
-data merge entity @s {width:1.002f,height:1.002f,response:1b}
+data merge entity @s {width:1.001f,height:1.001f,response:1b}

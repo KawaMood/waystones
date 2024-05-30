@@ -2,8 +2,8 @@
 
 # Give equiped head item back in inventory
 data modify storage pk:common params.id set from entity @s Inventory[{Slot:103b}].id
-data modify storage pk:common params.count set from entity @s Inventory[{Slot:103b}].count
-data modify storage pk:common params.components set from entity @s Inventory[{Slot:103b}].components
+data modify storage pk:common params.count set from entity @s Inventory[{Slot:103b}].Count
+data modify storage pk:common params.tag set from entity @s Inventory[{Slot:103b}].tag
 function pk_waystones:packages/dynamic_item/give with storage pk:common params
 item replace entity @s armor.head with air
 

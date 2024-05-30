@@ -16,8 +16,7 @@ execute align xyz run kill @e[type=interaction,tag=pk.custom_block.lock.in_use,d
 function pk_waystones:blocks/waystone/place/available_container
 
 # Remove potential kept gui items from the player inventory (using a stress glitch)
-clear @a[predicate=pk_waystones:scores/custom_block/interaction_id/match_temp,limit=1] *[minecraft:custom_data~{pk_data:{gui:1b,from:"waystones"}}]
-execute as @a[tag=pk.current.player,limit=1] at @s anchored eyes positioned ^ ^ ^ run kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{pk_data:{gui:1b,from:"waystones"}}}}},distance=..2]
+clear @a[predicate=pk_waystones:scores/custom_block/interaction_id/match_temp,limit=1] #pk_waystones:all{pk_data:{gui:1b,from:"waystones"}}
 
 # Animations
 stopsound @a[distance=..30] block block.barrel.close

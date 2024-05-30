@@ -4,10 +4,10 @@
 #   @within function pk_waystones:blocks/waystone/use/gui/actions/watch
 
 # Return item to user
-data modify storage pk:common params set value {components:{}}
+data modify storage pk:common params set value {tag:""}
 data modify storage pk:common params.id set from storage pk:common temp.gui.put_items[-1].id
-data modify storage pk:common params.count set from storage pk:common temp.gui.put_items[-1].count
-data modify storage pk:common params.components set from storage pk:common temp.gui.put_items[-1].components
+data modify storage pk:common params.count set from storage pk:common temp.gui.put_items[-1].Count
+data modify storage pk:common params.tag set from storage pk:common temp.gui.put_items[-1].tag
 function pk_waystones:packages/dynamic_item/give with storage pk:common params
 
 # Remove item from GUI

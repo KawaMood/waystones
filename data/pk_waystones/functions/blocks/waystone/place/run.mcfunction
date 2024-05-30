@@ -17,7 +17,7 @@ execute positioned ~0.5 ~1.5 ~0.5 summon marker run function pk_waystones:blocks
 
 # Create skin parts that don't depends on settings
 # Other skins part are set from settings
-#   @within function pk_waystones:blocks/waystone/main/settings/check
+#   @within function pk_waystones:blocks/waystone/main/settings/watch
 function pk_waystones:blocks/waystone/place/components/skins/parts/common with storage pk:common temp.waystone
 
 # Place blocks

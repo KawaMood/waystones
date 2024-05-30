@@ -12,8 +12,8 @@ data modify storage pk:common params.v1 set from storage pk:common temp.waystone
 function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
 
 # Kill dropped GUI items and potential barrel
-execute align xyz run kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{pk_data:{gui:1b}}}}},dx=0]
-execute unless block ~ ~ ~ barrel align xyz run kill @e[type=item,nbt={Item:{id:"minecraft:barrel",count:1},Age:0s},dx=0,limit=1]
+execute align xyz run kill @e[type=item,nbt={Item:{tag:{pk_data:{gui:1b}}}},dx=0]
+execute unless block ~ ~ ~ barrel align xyz run kill @e[type=item,nbt={Item:{id:"minecraft:barrel",Count:1b},Age:0s},dx=0,limit=1]
 
 # Check if the waystones has been removed too quickly
 #   Used for Worldguard compatibility

@@ -20,7 +20,7 @@ data modify storage pk:common temp.player.name set from storage pk:common temp.p
 #   If it failed to resolve the text component, return fail
 execute unless data storage pk:common temp.player.name run return fail
 
-# @continue Store player in database
+#@continue Store player in database
 #   If not in data base yet, add it
 execute if score $in_database pk.temp matches 0 run data modify storage pk:waystones database.players append from storage pk:common temp.player
 execute if score $in_database pk.temp matches 0 run return 1
