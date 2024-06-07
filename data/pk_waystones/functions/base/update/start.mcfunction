@@ -1,13 +1,10 @@
 #> pk_waystones:base/update/start
 # Update the current data pack if needed
 
-# V.3.1.0
-execute unless score $pk.waystones.version pk.value matches 1.. run function pk_waystones:base/update/versions/3_1_0
-# V.3.3.0
-execute unless score $pk.waystones.version pk.value matches 9.. run function pk_waystones:base/update/versions/3_3_0
-# V.3.3.2
-execute unless score $pk.waystones.version pk.value matches 30302.. run function pk_waystones:base/update/versions/3_3_2/start
+# Update depending on the current version 
+# - Changes from V.2.0.4
+execute if score $pk.waystones.version pk.value matches ..4 run function pk_waystones:base/update/revisions/4
 
 # Set the data pack current version score
-scoreboard players set $pk.waystones.version pk.value 30304
-data modify storage pk:common installed_datapacks[{id:"waystones"}].version set value "3.3.4"
+scoreboard players set $pk.waystones.version pk.value 5
+data modify storage pk.common:data Datapacks[{Name:"Waystones"}].Version set value "2.0.4"

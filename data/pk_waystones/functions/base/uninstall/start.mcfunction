@@ -1,8 +1,14 @@
 #> pk_waystones:base/uninstall/start
+# Uninstall the data pack and remove the common feature if there is no PK data pack installed anymore
 
-tag @s add pk.waystones.uninstaller
-tellraw @s [{"text": "Starting ","color": "gray"},{"text": "KawaMood's Waystones","color": "aqua","bold": true},{"text": " uninstallation...","color": "gray"}]
-execute store result score $pk.waystones.uninstall.waystones.length pk.value run data get storage pk:waystones database.waystones
-data modify storage pk:waystones uninstall.waystones set from storage pk:waystones database.waystones
-execute if score $pk.waystones.uninstall.waystones.length pk.value matches 0 run function pk_waystones:base/uninstall/stop
-execute if score $pk.waystones.uninstall.waystones.length pk.value matches 1.. run function pk_waystones:base/uninstall/1
+# Remove all placed custom blocks
+# Will need to be searched within all dimensions
+data remove storage pk.common:data Temp.Array
+data modify storage pk.common:data Temp.Array.Search set value []
+# - Append Custom Blocks
+data modify storage pk.common:data Temp.Array.Search append from storage pk.waystones:data Blocks.Waystones[]
+# - Forceload chunks where custom blocks are, then wait for the chunk to be fully loaded
+execute if data storage pk.common:data Temp.Array.Search[{}] run function pk_waystones:base/uninstall/marker_summon_recursive
+
+# Delayed process, assuming the chunk is fully loaded after the delay
+schedule function pk_waystones:base/uninstall/after_1s 1s

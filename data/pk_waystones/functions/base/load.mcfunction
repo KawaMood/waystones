@@ -2,67 +2,89 @@
 # Main load
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
+# Settings:
+# ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+
+# Common:
+# - $logs.load | default: (undefined) | <=0 = mask load logs | (undefined) or >=1 = show load logs
+# - $logs.tick | default: (undefined) | (undefined) or <=0 = mask tick logs | >=1 = show tick logs
+# - $custom_block.light_update pk.value | default: (undefined) | <=0 = disable | (undefined) or >=1 = enable custom blocks light update
+
+# Concerning this datapack:
+# - $logs.datapack.waystones pk.value | default: (undefined) | (undefined) or <=0 = masks | >=1 = show Waystones logs
+# - $pk.waystones.settings.limit_per_player pk.value | default: (undefined) | if set, defines the maximal amount of Waystones a player can place
+# - $pk.waystones.settings.limit_per_server pk.value | default: (undefined) | if set, defines the maximal amount of Waystones the server can contain
+# - $pk.waystones.settings.ignore_monsters pk.value | default: (undefined) | <=0 = disallow Waystones use if a monster is nearby | (undefined) or >=1 = ignore
+# - $pk.waystones.settings.legacy_textures pk.value | default: (undefined) | (undefined) or <=0 = disable | >=1 = use legacy Waystone textures
+#
+# /!\ Specific settings that need to be toggle using commands (function pk_waystones:cmd/settings/<path>)
+# - $pk.waystones.settings.name_visibility pk.value | default: (undefined) | (undefined) or <=0 = hide | >=1 = use show Waystones names above themselves
+
+# Special tags:
+# - pk.dev : Allow player to see data packs specific logs
+# - pk.waystones.manager : Allow player to bypass restrictions and manage other players Waystones
+
+# ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
+# Locations:
+# ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+# Location -30000000 0 1611 | Used in any custom dimension by the dimension_marker helper (need to stay forceloaded)
+
+# ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Storage:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 # Define storage
-#   pk:common | Used to store installed PK Datapacks names and version and for temp data manipulation
-#   pk:waystones database | Database of Waystones
-#declare storage pk:common
-#declare storage pk:waystones
+# - pk.common.data | Used to store installed PK Datapacks names and version and for temp data manipulation
+# - pk.waystones:data Block | Used to store features of a specific custom block from this data pack
+# - pk.waystones:data Blocks | Used to store the list of the placed custom block from this data pack
+#declare storage pk.common:data
+#declare storage pk.waystones:data
 
 # Initialize PK data packs storage if needed
-execute unless data storage pk:common installed_datapacks[{}] run data modify storage pk:common installed_datapacks set value []
+execute unless data storage pk.common:data Datapacks[{}] run data modify storage pk.common:data Datapacks set value []
 
 # Add current data pack into the PK data packs storage if needed
-execute unless data storage pk:common installed_datapacks[{id:"waystones"}] run data modify storage pk:common installed_datapacks append value {name:"Waystones",id:"waystones"}
+execute unless data storage pk.common:data Datapacks[{Name:"Waystones"}] run data modify storage pk.common:data Datapacks append value {Name:"Waystones"}
 
-# Initialize the storage used to store Waystones data
-execute unless data storage pk:waystones database.waystones[{}] run data modify storage pk:waystones database.waystones set value []
-execute unless data storage pk:waystones database.players[{}] run data modify storage pk:waystones database.players set value []
-execute unless data storage pk:waystones database.blacklist.dimensions[{}] run function pk_waystones:base/install/initialize_blacklisted_dimensions
+# Initialize the storage used to store Waystones location
+execute unless data storage pk.waystones:data Blocks.Waystones[{}] run data modify storage pk.waystones:data Blocks.Waystones set value []
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Scores:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 # Define objectives that are common to each PK data pack:
-#   pk.temp only concerns temp values that can be cleared at any time without risks.
-#   pk.value is used for fixed values and variable settings, and won't be cleared on uninstallation until there is no PK data pack anymore.
+# - pk.temp only concerns temp values that can be cleared at any time without risks.
+# - pk.value is used for fixed values and variable settings, and won't be cleared on uninstallation until there is no PK data pack anymore.
 scoreboard objectives add pk.temp dummy
 scoreboard objectives add pk.value dummy
 scoreboard objectives add pk.custom_block.component.id dummy
 scoreboard objectives add pk.custom_block.interaction.id dummy
+scoreboard objectives add pk.crafted.knowledge_book crafted:knowledge_book
 
 # Define objective that are specific to the current data pack
-#   Tracking players actions:
 scoreboard objectives add pk.waystones.mined.barrel mined:barrel
-scoreboard objectives add pk.waystones.leave_game custom:leave_game
-scoreboard objectives add pk.waystones.in_fight dummy
-#   Used for Waystones functioning:
-scoreboard objectives add pk.waystones.page dummy
-scoreboard objectives add pk.waystones.animations.timer dummy
-#   Used to link players with their vehicle or pets
-scoreboard objectives add pk.waystones.group.id dummy
-#   Used to allow a player to change its ability to see coordinates from the Waystones GUI (safety for video makers):
-scoreboard objectives add pk.waystones.hide_coordinates trigger
-#   Used to store gametime to some entities to know when they were loaded last time
-scoreboard objectives add pk.waystones.gametime dummy
-
-# Consts
-scoreboard players set $-1 pk.value -1
-scoreboard players set $18 pk.value 18
+scoreboard objectives add pk.waystones.owned_waystones_amount dummy
+scoreboard objectives add pk.waystones.player.leave_game custom:leave_game
+scoreboard objectives add pk.waystones.waystone.page dummy
+scoreboard objectives add pk.waystones.waystone.animations.delay dummy
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Packages:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+# Dimension marker
+function pk_waystones:packages/dimension_marker/load
+# Player id
+function pk_waystones:packages/player_id/load
+# RNG
+function pk_waystones:packages/random/load
 # Air toggling
 function pk_waystones:packages/air_toggling/load
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Updates:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-function pk_waystones:base/update/start
+execute unless score $pk.waystones.version pk.value matches 5 run function pk_waystones:base/update/start
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Logs:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-execute unless score $logs.load pk.value matches ..0 run tellraw @a [{"text": "Loaded ","color": "yellow"},{"text": "KawaMood's Waystones ","color": "aqua","bold": true},{"text": "(V.","color": "aqua"},{"nbt":"installed_datapacks[{id:\"waystones\"}].version", "storage": "pk:common","color": "aqua"},{"text": ")","color": "aqua"},{"text": " successfully"}]
+execute unless score $logs.load pk.value matches ..0 run tellraw @a [{"text": "Loaded ","color": "yellow"},{"text": "PK Waystones ","color": "aqua","bold": true},{"text": "(V.","color": "aqua"},{"nbt":"Datapacks[{Name:\"Waystones\"}].Version", "storage": "pk.common:data","color": "aqua"},{"text": ")","color": "aqua"},{"text": " successfully"}]
