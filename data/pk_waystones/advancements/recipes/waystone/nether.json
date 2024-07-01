@@ -1,0 +1,25 @@
+{
+    "parent": "minecraft:recipes/root",
+    "criteria": {
+        "has_an_ingredient": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": ["minecraft:amethyst_shard", "minecraft:ender_eye", "minecraft:lodestone", "minecraft:nether_brick"]
+                    }
+                ]
+            }
+        },
+        "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "pk_waystones:waystone/nether"
+            }
+        }
+    },
+    "requirements": [["has_the_recipe", "has_an_ingredient"]],
+    "rewards": {
+        "recipes": ["pk_waystones:waystone/nether"]
+    }
+}

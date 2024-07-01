@@ -24,6 +24,7 @@
 #   $pk.waystones.settings.hide_coordinates         pk.value | default: (undefined) | (undefined) or 0 : show | 1 : hide coordinates for all players
 #   $pk.waystones.settings.gui.extra_clear_delay    pk.value | default: 2 | delay before running an extra command that clears all players waystones gui items
 #   $pk.waystones.settings.lootable_delay           pk.value | default: (undefined) | >=1 minimal age of existence for the waystone to loot when removed
+#   $pk.waystones.settings.tick_clear_gui_items     pk.value | default: (undefined) | (undefined) or 0 : disable | 1 : clear players waystones GUI items each tick
 #   Permissions
 #   $pk.waystones.permissions.change.visibility.discover pk.value | default: (undefined) | 0 = disable | (undefined) or 1 allow visibility change to "discover"
 #   $pk.waystones.permissions.change.visibility.private  pk.value | default: (undefined) | 0 = disable | (undefined) or 1 allow visibility change to "private"

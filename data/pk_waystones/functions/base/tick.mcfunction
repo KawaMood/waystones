@@ -28,3 +28,8 @@ execute as @e[type=marker,tag=pk.waystones.waystone.controller] at @s run functi
 scoreboard players set @a[scores={pk.waystones.mined.barrel=1..}] pk.waystones.mined.barrel 0
 # Player is in fight
 scoreboard players remove @a[scores={pk.waystones.in_fight=1..}] pk.waystones.in_fight 1
+
+# ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
+# Safety:
+# ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
+execute if score $pk.waystones.settings.tick_clear_gui_items pk.value matches 1.. run clear @a *[custom_data~{pk_data:{gui:1b,from:"waystones"}}]

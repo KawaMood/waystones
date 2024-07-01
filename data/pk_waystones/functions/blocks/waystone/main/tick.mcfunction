@@ -17,7 +17,7 @@ function pk_waystones:blocks/waystone/environment/tick
 
 # Animations
 scoreboard players add @s pk.waystones.animations.timer 1
-execute if entity @s[scores={pk.waystones.animations.timer=5}] run particle enchant ~ ~1 ~ 0.5 0.5 0.5 0.001 1 
+execute if entity @s[scores={pk.waystones.animations.timer=5}] run particle enchant ~ ~1 ~ 0.5 0.5 0.5 0.001 1
 scoreboard players set @s[scores={pk.waystones.animations.timer=5}] pk.waystones.animations.timer 0
 
 # Unmark the current controller

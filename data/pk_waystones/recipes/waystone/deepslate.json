@@ -19,9 +19,7 @@
         "id": "minecraft:player_head",
         "components": {
             "minecraft:custom_model_data": 11130035,
-            "minecraft:lore": [
-                "{\"color\":\"dark_gray\",\"italic\":false,\"text\":\"Deepslate Waystone\"}"
-            ],
+            "minecraft:lore": ["{\"color\":\"dark_gray\",\"italic\":false,\"text\":\"Deepslate Waystone\"}"],
             "minecraft:item_name": "{\"color\":\"yellow\",\"italic\":false,\"text\":\"Deepslate Waystone\"}",
             "minecraft:custom_data": {
                 "pk_data": {
