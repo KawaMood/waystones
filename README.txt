@@ -13,7 +13,7 @@ This data pack follows the CC BY-NC-SA 4.0 licence: https://creativecommons.org/
 
 You're free to share and adapt this content under the following terms:
     • Attribution (BY) — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-    • NonCommercial (NC) — You may not use the material for commercial purposes.
+    • NonCommercial (NC) — You may not use the material for commercial purposes, including commercial ads.
     • ShareAlike (SA) — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
 ―――――――――――――――――――――――――――――――――――――――――
