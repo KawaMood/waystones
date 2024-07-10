@@ -1,4 +1,4 @@
-# **KawaMood's Waystones V.2.0.5**
+# **KawaMood's Waystones V.2.1.4**
 
 **Avoid unnecessary long journeys!**
 
