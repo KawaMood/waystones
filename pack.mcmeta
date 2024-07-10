@@ -1,11 +1,6 @@
 {
-    "id": "pk.waystones",
     "pack": {
-        "pack_format": 41,
-        "supported_formats": {
-            "min_inclusive": 41,
-            "max_inclusive": 41
-        },
-        "description": "KawaMood's Waystones V.3.3.5 for Minecraft 1.20.6"
+        "pack_format": 15,
+        "description": "KawaMood's Waystones V.2.1.4 - For MC 1.20+"
     }
 }

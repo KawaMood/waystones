@@ -1,9 +1,0 @@
-{
-    "replace": false,
-    "values": [
-        "#pk_waystones:boss",
-        "#pk_waystones:hostile",
-        "#pk_waystones:neutral",
-        "minecraft:player"
-    ]
-}
