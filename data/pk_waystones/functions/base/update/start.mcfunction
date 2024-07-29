@@ -9,4 +9,4 @@ execute if score $pk.waystones.version pk.value matches ..5 run function pk_ways
 
 # Set the data pack current version score
 scoreboard players set $pk.waystones.version pk.value 10
-data modify storage pk.common:data Datapacks[{Name:"Waystones"}].Version set value "2.1.4"
+data modify storage pk.common:data Datapacks[{Name:"Waystones"}].Version set value "2.1.5"
