@@ -7,9 +7,9 @@
 
 # All Waystones: If the player is a manager, let all waystones but the current one and skip all further filters
 data modify storage pk:common temp.visible_waystones set from storage pk:waystones database.waystones
-data modify storage pk:common params set value {p1:"data remove storage pk:common temp.visible_waystones[{id:",p2:"}]"}
-data modify storage pk:common params.v1 set from storage pk:common temp.used_waystone.id
-function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
+data modify storage pk:common temp.args set value {p1:"data remove storage pk:common temp.visible_waystones[{id:",p2:"}]"}
+data modify storage pk:common temp.args.v1 set from storage pk:common temp.used_waystone.id
+function pk_waystones:packages/dynamic_command/1_var with storage pk:common temp.args
 execute if entity @s[tag=pk.waystones.manager] run return 1
 
 # Keep only waystones from the same dimension if the permission "tp.in_other_dimensions" is disabled

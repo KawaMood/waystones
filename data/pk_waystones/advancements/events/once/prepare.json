@@ -5,6 +5,6 @@
         }
     },
     "rewards": {
-        "function": "pk_waystones:events/player/once/prepare"
+        "function": "pk_waystones:events/player/once/run"
     }
 }

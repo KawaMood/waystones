@@ -22,6 +22,7 @@ function pk_waystones:blocks/waystone/place/components/skins/parts/common with s
 
 # Place blocks
 setblock ~ ~ ~ barrier
+execute if predicate pk_waystones:block_sets/waystone/adjacent_to_full_water run setblock ~ ~ ~ barrier[waterlogged=true]
 execute positioned ~ ~1 ~ run function pk_waystones:blocks/waystone/place/available_container
 
 # Animations

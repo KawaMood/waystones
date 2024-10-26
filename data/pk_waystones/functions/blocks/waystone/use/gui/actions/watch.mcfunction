@@ -21,7 +21,7 @@ execute at @s anchored eyes positioned ^ ^ ^ store result score $gui.action.drop
 execute unless score $gui.action.click pk.temp matches 1.. unless score $gui.action.put pk.temp matches 1.. unless score $gui.action.drop pk.temp matches 1.. run return 0
 
 # Prepare necessary data from controller
-data modify storage pk:common params.id set from entity @e[type=marker,tag=pk.waystones.waystone.controller,distance=..0.1,limit=1] data.waystone.id
+data modify storage pk:common temp.args.id set from entity @e[type=marker,tag=pk.waystones.waystone.controller,distance=..0.1,limit=1] data.waystone.id
 function pk_waystones:blocks/waystone/use/data/used_waystone/get
 data modify storage pk:common temp.gui.prev_tick_items set from entity @e[type=marker,tag=pk.waystones.waystone.controller,distance=..0.1,limit=1] data.waystone.gui.prev_tick_items
 

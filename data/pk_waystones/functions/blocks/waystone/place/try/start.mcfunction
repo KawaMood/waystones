@@ -10,11 +10,11 @@ data modify storage pk:common temp.block set from block ~ ~ ~
 
 # Total amount of Waystones owned by the current player
 scoreboard players set $waystones_of_player pk.temp 0
-data modify storage pk:common temp.database.output set value []
-data modify storage pk:common params set value {p1:"data modify storage pk:common temp.database.output append from storage pk:waystones database.waystones[{owner:",p2:"}]"}
-data modify storage pk:common params.v1 set from entity @s UUID
-function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
-execute store result score $waystones_of_player pk.temp run data get storage pk:common temp.database.output
+data modify storage pk:common temp.database_output set value []
+data modify storage pk:common temp.args set value {p1:"data modify storage pk:common temp.database_output append from storage pk:waystones database.waystones[{owner:",p2:"}]"}
+data modify storage pk:common temp.args.v1 set from entity @s UUID
+function pk_waystones:packages/dynamic_command/1_var with storage pk:common temp.args
+execute store result score $waystones_of_player pk.temp run data get storage pk:common temp.database_output
 
 # Total amount of Waystones in the world
 scoreboard players set $waystones_of_server pk.temp 0
@@ -27,8 +27,8 @@ scoreboard players set $place.stop pk.temp 0
 # Start to check if the waystone can be placed at this location
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Check if the current dimension isn't blacklisted (condition outpassed by managers)
-data modify storage pk:common params.dimension set from entity @s Dimension
-execute unless entity @s[tag=pk.waystones.manager] run function pk_waystones:blocks/waystone/place/try/dimension with storage pk:common params
+data modify storage pk:common temp.args.dimension set from entity @s Dimension
+execute unless entity @s[tag=pk.waystones.manager] run function pk_waystones:blocks/waystone/place/try/dimension with storage pk:common temp.args
 execute unless score $place.stop pk.temp matches 0 run return 0
 
 # Check if the player exceeded the Waystones limit per player (condition outpassed by managers)

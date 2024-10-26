@@ -7,9 +7,9 @@ scoreboard players operation $temp pk.custom_block.component.id = @s pk.custom_b
 scoreboard players set $env.stop pk.temp 1
 
 # Delete from the database
-data modify storage pk:common params set value {p1:"data remove storage pk:waystones database.waystones[{id:",p2:"}]"}
-data modify storage pk:common params.v1 set from storage pk:common temp.waystone.id
-function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
+data modify storage pk:common temp.args set value {p1:"data remove storage pk:waystones database.waystones[{id:",p2:"}]"}
+data modify storage pk:common temp.args.v1 set from storage pk:common temp.waystone.id
+function pk_waystones:packages/dynamic_command/1_var with storage pk:common temp.args
 
 # Kill dropped GUI items and potential barrel
 execute align xyz run kill @e[type=item,nbt={Item:{components:{"minecraft:custom_data":{pk_data:{gui:1b}}}}},dx=0]

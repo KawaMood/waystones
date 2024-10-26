@@ -19,5 +19,5 @@ execute if score $gui.restore_from_prev_tick_items pk.temp matches 1 run data mo
 
 # Delayed extra clear commands (for modified versions having weird functioning)
 execute unless score $pk.waystones.settings.gui.extra_clear_delay pk.value matches 1.. run scoreboard players set $pk.waystones.settings.gui.extra_clear_delay pk.value 2
-execute store result storage pk:common params.duration int 1 run scoreboard players get $pk.waystones.settings.gui.extra_clear_delay pk.value
-function pk_waystones:blocks/waystone/use/gui/actions/click/extra_clear_schedule with storage pk:common params
+execute store result storage pk:common temp.args.duration int 1 run scoreboard players get $pk.waystones.settings.gui.extra_clear_delay pk.value
+function pk_waystones:blocks/waystone/use/gui/actions/click/extra_clear_schedule with storage pk:common temp.args

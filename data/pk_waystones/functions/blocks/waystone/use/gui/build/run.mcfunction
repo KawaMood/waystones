@@ -10,9 +10,9 @@ execute store result score $gui.last_page pk.temp run data get entity @e[type=ma
 # Check if user is the owner
 #   @writes score $player_is_owner pk.temp
 #       0: isn't owner | 1: is owner
-data modify storage pk:common params set value {p1:"execute store success score $player_is_owner pk.temp if data storage pk:common temp.used_waystone{owner:",p2:"}"}
-data modify storage pk:common params.v1 set from entity @s UUID
-function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
+data modify storage pk:common temp.args set value {p1:"execute store success score $player_is_owner pk.temp if data storage pk:common temp.used_waystone{owner:",p2:"}"}
+data modify storage pk:common temp.args.v1 set from entity @s UUID
+function pk_waystones:packages/dynamic_command/1_var with storage pk:common temp.args
 
 # Check if user can see the waystones coordinates
 scoreboard players set $hide_coordinates pk.temp 0
@@ -21,8 +21,8 @@ execute if entity @a[tag=pk.current.player,predicate=pk_waystones:gameplay/hide_
 # Store the list of visible waystones from the controller
 data modify storage pk:common temp.visible_waystones set from entity @e[type=marker,tag=pk.waystones.waystone.controller,dx=0,limit=1] data.waystone.gui.visible_waystones
 
-# If the xp_consumption setting is enabled, prepare data
-execute if score $pk.waystones.settings.xp_consumption.blocks pk.value matches 1.. run function pk_waystones:blocks/waystone/use/gui/build/settings/xp_consumption/prepare_data
+# If the xp_consumption setting is enabled
+execute if score $pk.waystones.settings.xp_consumption.value pk.value matches 1.. run function pk_waystones:blocks/waystone/use/gui/build/settings/xp_consumption/prepare_data
 
 # Build both GUI components
 data modify storage pk:common temp.gui.items set value []

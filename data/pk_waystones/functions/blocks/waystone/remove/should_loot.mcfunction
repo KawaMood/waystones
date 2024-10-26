@@ -12,5 +12,5 @@ scoreboard players operation $age pk.temp -= $created_at_gametime pk.temp
 execute if score $pk.waystones.settings.lootable_delay pk.value > $age pk.temp run return 0
 
 # @continue: Loot
-data modify storage pk:common params.variant set from storage pk:common temp.waystone.variant
-function pk_waystones:blocks/waystone/remove/loot with storage pk:common params
+data modify storage pk:common temp.args.variant set from storage pk:common temp.waystone.variant
+function pk_waystones:blocks/waystone/remove/loot with storage pk:common temp.args

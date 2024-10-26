@@ -17,5 +17,5 @@ execute if score $player.level pk.temp < $xp_consumption.levels pk.temp if entit
 execute if score $trigger.stop pk.temp matches 1 run return 0
 
 # Consume levels
-execute store result storage pk:common params.levels int 1 run scoreboard players get $xp_consumption.levels pk.temp
-execute if entity @s[gamemode=!creative] run function pk_waystones:blocks/waystone/use/gui/triggers/tp/settings/xp_consumption/consume with storage pk:common params
+execute store result storage pk:common temp.args.levels int 1 run scoreboard players get $xp_consumption.levels pk.temp
+execute if entity @s[gamemode=!creative] run function pk_waystones:blocks/waystone/use/gui/triggers/tp/settings/xp_consumption/consume with storage pk:common temp.args

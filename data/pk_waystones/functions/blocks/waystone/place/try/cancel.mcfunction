@@ -10,10 +10,10 @@ title @s clear
 $title @s actionbar {"text": "$(reason)", "color": "red"}
 
 # Give item back to the player
-data modify storage pk:common params.id set from storage pk:common temp.item.id
-data modify storage pk:common params.tag set from storage pk:common temp.item.tag
-data modify storage pk:common params.count set value 1
-function pk_waystones:packages/dynamic_item/give with storage pk:common params
+data modify storage pk:common temp.args.id set from storage pk:common temp.item.id
+data modify storage pk:common temp.args.tag set from storage pk:common temp.item.tag
+data modify storage pk:common temp.args.count set value 1
+function pk_waystones:packages/dynamic_item/give with storage pk:common temp.args
 
 # Set the current block as air
 setblock ~ ~ ~ air

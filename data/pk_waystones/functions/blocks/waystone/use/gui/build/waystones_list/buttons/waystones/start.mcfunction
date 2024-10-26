@@ -21,7 +21,10 @@ scoreboard players operation $gui.page.waystones.amount pk.temp -= $i pk.temp
 scoreboard players add $gui.page.waystones.amount pk.temp 1
 
 # Recursively set waystone item
+scoreboard players set $in_water pk.temp 0
+execute if block ~ ~-1 ~ barrier[waterlogged=true] run scoreboard players set $in_water pk.temp 1
 setblock ~ ~-1 ~ oak_sign
-execute store result storage pk:common params.i int 1 run scoreboard players get $i pk.temp
-function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/recursive with storage pk:common params
+execute store result storage pk:common temp.args.i int 1 run scoreboard players get $i pk.temp
+function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/recursive with storage pk:common temp.args
 setblock ~ ~-1 ~ barrier
+execute if score $in_water pk.temp matches 1 run setblock ~ ~-1 ~ barrier[waterlogged=true]

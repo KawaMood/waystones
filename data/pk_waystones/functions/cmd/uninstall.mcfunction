@@ -1,3 +1,3 @@
 #> pk_waystones:cmd/uninstall
 
-function pk_waystones:base/uninstall/start
+function pk_waystones:_main/uninstall/start

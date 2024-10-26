@@ -5,7 +5,7 @@
 #       @within function pk_waystones:cmd/blocks/waystone/place
 
 # Data with default values: visibility, discovered_by, shared_with, protected, render_item
-data modify storage pk:common temp.waystone set value {variant:"regular",visibility:"discover",discovered_by:[],shared_with:[],protected:0b,render_item:{id:"minecraft:grass_block"},name:'{"text":"Waystone"}',location:{dimension:"minecraft:overworld"}} 
+data modify storage pk:common temp.waystone set value {variant:"andesite",visibility:"discover",discovered_by:[],shared_with:[],protected:0b,render_item:{id:"minecraft:grass_block"},name:'{"text":"Waystone"}',location:{dimension:"minecraft:overworld"}} 
 # Id
 data modify storage pk:common temp.waystone.id set from storage pk:common temp.command.params.waystone.id
 execute unless data storage pk:common temp.waystone.id store result storage pk:common temp.waystone.id int 1 run scoreboard players get $temp pk.custom_block.component.id

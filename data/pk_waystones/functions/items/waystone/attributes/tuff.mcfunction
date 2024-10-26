@@ -1,0 +1,4 @@
+#> pk_waystones:items/waystone/attributes/tuff
+# Returns data of item used to create a dynamic item into storage pk:common temp.attributes
+
+data modify storage pk:common temp.attributes set value {id:"minecraft:player_head",components:{"minecraft:custom_model_data":11130039,"minecraft:lore":['{"color":"dark_gray","fallback":"Tuff Waystone","italic":false,"translate":"item.pk_waystones.waystone_tuff"}'],"minecraft:item_name":'{"color":"yellow","italic":false,"translate":"item.pk_waystones.waystone_tuff","fallback":"Tuff Waystone"}',"minecraft:custom_data":{pk_data:{custom_block:1b,id:"waystone",from:"waystones",variant:"tuff",version:11b}},"minecraft:profile":{properties:[{name:"textures",value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHBzOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2QzNzkzYzg4Y2M2NTg1M2RiN2U2NmM2YjUxZjQ1MjZiYjQ2YzBkMWFlNjU4ODE0MDk0ODk3ODg4OGY1MGIxYWIifX19"}]}},count:1}

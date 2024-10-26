@@ -3,9 +3,6 @@
 # Prepare scores
 scoreboard players operation @s pk.custom_block.component.id = $temp pk.custom_block.component.id
 
-# Initialize animations delay score
-scoreboard players set @s pk.waystones.waystone.animations.delay 0
-
 # Set tags
 data modify entity @s Tags set value ["pk.custom_block","pk.custom_block.container","pk.waystones.waystone","pk.waystones.waystone.component","pk.waystones.waystone.controller"]
 

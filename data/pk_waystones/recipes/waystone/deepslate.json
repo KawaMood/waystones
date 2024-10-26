@@ -12,22 +12,24 @@
             "item": "minecraft:lodestone"
         },
         "P": {
-            "item": "minecraft:deepslate_bricks"
+            "item": "minecraft:cobbled_deepslate"
         }
     },
     "result": {
         "id": "minecraft:player_head",
         "components": {
             "minecraft:custom_model_data": 11130035,
-            "minecraft:lore": ["{\"color\":\"dark_gray\",\"italic\":false,\"text\":\"Deepslate Waystone\"}"],
-            "minecraft:item_name": "{\"color\":\"yellow\",\"italic\":false,\"text\":\"Deepslate Waystone\"}",
+            "minecraft:lore": [
+                "{\"color\":\"dark_gray\",\"italic\":false,\"fallback\":\"Deepslate Waystone\",\"translate\":\"item.pk_waystones.deepslate_waystone\"}"
+            ],
+            "minecraft:item_name": "{\"color\":\"yellow\",\"italic\":false,\"fallback\":\"Deepslate Waystone\",\"translate\":\"item.pk_waystones.deepslate_waystone\"}",
             "minecraft:custom_data": {
                 "pk_data": {
                     "custom_block": 1,
                     "id": "waystone",
                     "from": "waystones",
                     "variant": "deepslate",
-                    "version": 10
+                    "version": 11
                 }
             },
             "minecraft:profile": {

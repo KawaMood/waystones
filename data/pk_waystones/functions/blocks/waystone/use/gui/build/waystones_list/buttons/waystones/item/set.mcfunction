@@ -32,7 +32,7 @@ execute if data storage pk:common temp.visible_waystone{visibility:"discover"} r
 execute if data storage pk:common temp.visible_waystone{visibility:"public"} run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value '{"text":"Public Waystone","color":"green","italic":false}' 
 
 # Set required level if the "consumption_level" setting is enabled
-execute if score $pk.waystones.settings.xp_consumption.blocks pk.value matches 1.. run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/xp_consumption/try
+execute if score $pk.waystones.settings.xp_consumption.value pk.value matches 1.. run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/xp_consumption/try
 
 # Set owner in lore
 execute if data storage pk:common temp.visible_waystone.owner run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/owner

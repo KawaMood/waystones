@@ -5,12 +5,12 @@
 
 # Prepare data depending on the Waystone variant
 $function pk_waystones:blocks/waystone/place/components/skins/attributes/$(variant)
-data modify storage pk:common params merge from storage pk:common temp.attributes
+data modify storage pk:common temp.args merge from storage pk:common temp.attributes
 
 # Base parts
-execute summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/base/1 with storage pk:common params
-execute summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/base/2 with storage pk:common params
-execute summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/base/3 with storage pk:common params
+execute summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/base/1 with storage pk:common temp.args
+execute summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/base/2 with storage pk:common temp.args
+execute summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/base/3 with storage pk:common temp.args
 
 # Top parts
-execute positioned ~ ~2 ~ summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/top/1 with storage pk:common params
+execute positioned ~ ~2 ~ summon item_display run function pk_waystones:blocks/waystone/place/components/skins/parts/top/1 with storage pk:common temp.args

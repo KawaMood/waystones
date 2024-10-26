@@ -10,5 +10,5 @@ function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/wayst
 # Recursive call
 scoreboard players add $i pk.temp 1
 scoreboard players add $slot pk.temp 1
-execute store result storage pk:common params.i int 1 run scoreboard players get $i pk.temp
-execute if score $i pk.temp <= $i_max pk.temp run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/recursive with storage pk:common params
+execute store result storage pk:common temp.args.i int 1 run scoreboard players get $i pk.temp
+execute if score $i pk.temp <= $i_max pk.temp run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/recursive with storage pk:common temp.args

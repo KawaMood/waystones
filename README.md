@@ -1,4 +1,4 @@
-﻿# **KawaMood's Waystones V.3.3.5**
+# **KawaMood's Waystones**
 
 **Avoid unnecessary long journeys!**
 
@@ -8,7 +8,7 @@ A survival-friendly and multiplayer-friendly way to quickly travel in your world
 # 🪄Introduction
 ## What is Waystones?
 
-Waystones is a data pack inspired by [BlayTheNinth's famous Waystones mod](https://www.curseforge.com/minecraft/mc-mods/waystones).
+KawaMood's Waystones is a data pack inspired by [BlayTheNinth's famous Waystones mod](https://www.curseforge.com/minecraft/mc-mods/waystones).
 Waystones allow you to travel quickly from one point to another in your world, and within any dimension (including custom ones). Unlike the mod, waystones do not appear naturally within the world, they require to be crafted.
 
 ## How to craft and use a waystone?
@@ -19,9 +19,17 @@ Waystones can be crafted using:
 - 1x **Eye of Ender**
 - and 3x base blocks
 
-Base blocks to use depend on the desired look. You can use **Polished Andesite**, **Cut Sandstones**, **Deepslate Bricks**, **Nether Bricks**, or **Mossy Stone Bricks**. The recipe is the following:
+Base blocks to use depend on the desired variant of waystone to get:
+- **Andesite** for Andesite Waystone
+- **Sandstone** for Sand Waystone
+- **Nether Bricks** for Nether Waystone
+- **Mossy Stone Bricks** for Mossy Waystone
+- **Cobbled Deepslate** for Deepslate Waystone
+- **Copper Block** for Copper Waystone
+- **Prismarine Bricks** for Prismarine Waystone
+- **Tuff** for Tuff Waystone
 
-![waystone recipes](https://cdn.modrinth.com/data/cached_images/c561e483a634094f322fbbdf1523f87579c072e5.gif)
+![waystone recipes](https://cdn.modrinth.com/data/cached_images/b4c50ca9b270a5af87633d3faab072183732601c.gif)
 
 Before placing your waystone, it is recommended to rename it within an **Anvil**. This will allow you to retrieve your points correspondance more easily within the waystones list.
 Waystones icons in the list depends on the block they have been placed on, so you can also chose identifiable ones. These icons also handle NBT (meaning you can place a waystone on a custom player head to have custom icons).
@@ -87,27 +95,33 @@ Example - Granting the manager role to the player named "Bob"
 <details>
 <summary>XP Consumption</summary>
 
-If enabled, players will need to consume levels to travel from waystone to waystone. The cost is calculated according to the distance between the used and target waystones. The setting can be enabled using the following command:
+If enabled, players will need to consume levels to travel from waystone to waystone. The cost can either be fixed, or calculated according to the distance between the used and targeted waystones. The setting can be enabled using the following command:
 ```
-/function pk_waystones:settings/xp_consumption/set {blocks:<amount>, mode:<mode>}
+/function pk_waystones:settings/xp_consumption/set {value:<amount>, mode:<mode>}
 ```
 This command use two parameters:
-- **blocks** waits as value the count of blocks you want the player to consume a level for in order to teleport. Meaning for example, if two waystones are separated by 5000 blocks, and I set a value of 1000, it will require 5 levels to teleport to it.
-  If this value is set to 0 or a negative value, it will disable the setting.
-- **mode** waits for either "manhattan" or "euclidian". It is the method used to calculate the distance between waystones.  
+- **mode** waits for either "fixed", "manhattan" or "euclidian". Both last are method used to calculate the distance between waystones.  
   - ["manhattan"](https://en.wikipedia.org/wiki/Taxicab_geometry) relies on the game's grid, meaning if a waystone is located at 0, 64, 0 and the other at 1000, 64, 1000, the setting will consider both waystone are separated by 2000 blocks.
   - ["euclidian"](https://en.wikipedia.org/wiki/Euclidean_distance) refers to the distance in flight. Meaning if we took this same example above, the process will draw a vector between both waystones and calculate its length. The distance will then be around 1414 blocks.
+- **value** depends on the mode.
+  - With the "fixed" mode, it waits for the amount of level the player would consume to teleport from a waystone to any other ones.
+  - With "euclidian" or "manhattan" mode, it waits as value the count of blocks you want the player to consume a level for in order to teleport. Meaning for example, if two waystones are separated by 5000 blocks, and I set a value of 1000, it will require 5 levels to teleport to it.
+  - In any case, if this value is set to 0 or a negative value, it will disable the setting.
 
+_Example - Make teleportation require 5 levels no matter the targeted waystone:_
+```
+/function pk_waystones:settings/xp_consumption/set {mode:"fixed", value:5}
+```
 _Example - Consume 1 level for 1000 blocks, with the euclidian calculation method:_
 ```
-/function pk_waystones:settings/xp_consumption/set {blocks:1000, mode:"euclidian"}
+/function pk_waystones:settings/xp_consumption/set {mode:"euclidian", value:1000}
 ```
 _Example - Disable the setting completely:_
 ```
-/function pk_waystones:settings/xp_consumption/set {blocks:0, mode:"euclidian"}
+/function pk_waystones:settings/xp_consumption/set {mode:"euclidian", value:0}
 ```
 
-If needed, you can also be informed of the current amount of blocks per level and method using the following command:
+If needed, you can also be informed of the current mode and value using the following command:
 ```
 /function pk_waystones:settings/xp_consumption/get
 ```
@@ -239,6 +253,19 @@ _Example - Set a delay of 2 ticks:_
 Or **get** the current delay using the following command:
 ```
 /function pk_waystones:settings/lootable_delay/get
+```
+</details>
+<details>
+<summary>Tick GUI items clear (security for non-vanilla servers)</summary>
+
+External versions such as Paper sometimes involve weird behavior with containers.
+In order to avoid potential items dupe issues with them, you can tick the system that clear items players may have managed to take from a waystone's GUI using this setting.
+
+You can **enable**, **disable** or **get** the current state of this setting using these following commands respectively:
+```
+/function pk_waystones:settings/tick_clear_gui_items/true
+/function pk_waystones:settings/tick_clear_gui_items/false
+/function pk_waystones:settings/tick_clear_gui_items/get
 ```
 </details>
 <details>
@@ -526,6 +553,5 @@ Thank you for using Waystones! It makes me happy to know people are enjoying it.
 If you want to support its development and the development of other data packs, you can support me on my other social networks: 
 
 - [Youtube](https://www.youtube.com/@KawaMood/)
-- [Modrinth](https://modrinth.com/user/KawaMood)
 - [Planet Minecraft](https://www.planetminecraft.com/member/kawamood/)
 - Or if you're in a generous mood, I accept donation on [paypal](https://paypal.me/KawaMood) or [buy me a kawa](https://www.buymeacoffee.com/kawamood) (slang term for "coffee")!

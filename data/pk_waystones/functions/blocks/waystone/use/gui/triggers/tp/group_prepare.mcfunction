@@ -6,9 +6,9 @@ tag @s add pk.waystones.tp
 
 # Search leashed entity
 scoreboard players set $has_companion pk.temp 0
-data modify storage pk:common params set value {p1:"execute store result score $has_companion pk.temp run tag @e[type=!player,distance=..20,nbt={leash:{UUID:",p2:"}}] add pk.waystones.tp"}
-data modify storage pk:common params.v1 set from entity @s UUID
-function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
+data modify storage pk:common temp.args set value {p1:"execute store result score $has_companion pk.temp run tag @e[type=!player,distance=..20,nbt={leash:{UUID:",p2:"}}] add pk.waystones.tp"}
+data modify storage pk:common temp.args.v1 set from entity @s UUID
+function pk_waystones:packages/dynamic_command/1_var with storage pk:common temp.args
 
 # Search vehicle and its passengers
 scoreboard players set $has_vehicle pk.temp 0

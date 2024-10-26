@@ -20,16 +20,16 @@
         "components": {
             "minecraft:custom_model_data": 11130034,
             "minecraft:lore": [
-                "{\"color\":\"dark_gray\",\"italic\":false,\"text\":\"Nether Waystone\"}"
+                "{\"color\":\"dark_gray\",\"italic\":false,\"fallback\":\"Nether Waystone\",\"translate\":\"item.pk_waystones.nether_waystone\"}"
             ],
-            "minecraft:item_name": "{\"color\":\"yellow\",\"italic\":false,\"text\":\"Nether Waystone\"}",
+            "minecraft:item_name": "{\"color\":\"yellow\",\"italic\":false,\"fallback\":\"Nether Waystone\",\"translate\":\"item.pk_waystones.nether_waystone\"}",
             "minecraft:custom_data": {
                 "pk_data": {
                     "custom_block": 1,
                     "id": "waystone",
                     "from": "waystones",
                     "variant": "nether",
-                    "version": 10
+                    "version": 11
                 }
             },
             "minecraft:profile": {

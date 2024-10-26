@@ -12,8 +12,8 @@ scoreboard players set $pk.custom_block.placed_by_player pk.temp 1
 
 # Search the placed block
 # @callback function pk_waystones:blocks/waystone/place/try/start
-data modify storage pk:common params set value {distance:10,block:"#pk_waystones:player_heads",nbt:{components:{"minecraft:custom_data":{pk_data:{custom_block:1b,id:"waystone",from:"waystones"}}}},callback:"function pk_waystones:blocks/waystone/place/try/start",stop_at_first:true}
-function pk_waystones:packages/search_block/start with storage pk:common params
+data modify storage pk:common temp.args set value {distance:10,block:"#pk_waystones:player_heads",nbt:{components:{"minecraft:custom_data":{pk_data:{custom_block:1b,id:"waystone",from:"waystones"}}}},callback:"function pk_waystones:blocks/waystone/place/try/start",stop_at_first:true}
+function pk_waystones:packages/search_block/start with storage pk:common temp.args
 
 # Unmark the current player
 tag @s remove pk.current.player

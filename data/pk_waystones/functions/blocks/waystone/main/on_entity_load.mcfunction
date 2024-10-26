@@ -8,9 +8,9 @@ scoreboard players operation @s pk.waystones.gametime = $gametime pk.value
 
 # Store the current waystone's data in pk:common temp.waystone
 data remove storage pk:common temp.waystone
-data modify storage pk:common params set value {p1:"data modify storage pk:common temp.waystone set from storage pk:waystones database.waystones[{id:",p2:"}]"}
-data modify storage pk:common params.v1 set from entity @s data.waystone.id
-function pk_waystones:packages/dynamic_command/1_var with storage pk:common params
+data modify storage pk:common temp.args set value {p1:"data modify storage pk:common temp.waystone set from storage pk:waystones database.waystones[{id:",p2:"}]"}
+data modify storage pk:common temp.args.v1 set from entity @s data.waystone.id
+function pk_waystones:packages/dynamic_command/1_var with storage pk:common temp.args
 
 # Check if the data pack's version updated
 scoreboard players set $controller.version pk.temp 0
