@@ -20,16 +20,13 @@ Waystones can be crafted using:
 - and 3x base blocks
 
 Base blocks to use depend on the desired variant of waystone to get:
-- **Andesite** for Andesite Waystone
-- **Sandstone** for Sand Waystone
+- **Polished Andesite** for Andesite Waystone
+- **Polished Sandstone** for Sand Waystone
 - **Nether Bricks** for Nether Waystone
 - **Mossy Stone Bricks** for Mossy Waystone
-- **Cobbled Deepslate** for Deepslate Waystone
-- **Copper Block** for Copper Waystone
-- **Prismarine Bricks** for Prismarine Waystone
-- **Tuff** for Tuff Waystone
+- **Polished Deepslate** for Deepslate Waystone
 
-![waystone recipes](https://cdn.modrinth.com/data/cached_images/b4c50ca9b270a5af87633d3faab072183732601c.gif)
+![waystone recipes](https://camo.githubusercontent.com/c8a1c8911c7eb2bbd68f217724941754cab19aab6d190d426454d2c4b3ad646f/68747470733a2f2f63646e2e6d6f6472696e74682e636f6d2f646174612f6361636865645f696d616765732f633536316534383361363334303934663332326662626466313532336638373537396330373265352e676966)
 
 Before placing your waystone, it is recommended to rename it within an **Anvil**. This will allow you to retrieve your points correspondance more easily within the waystones list.
 Waystones icons in the list depends on the block they have been placed on, so you can also chose identifiable ones. These icons also handle NBT (meaning you can place a waystone on a custom player head to have custom icons).
