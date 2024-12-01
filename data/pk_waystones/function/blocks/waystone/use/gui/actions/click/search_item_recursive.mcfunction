@@ -6,6 +6,7 @@
 # @writes pk:common temp.gui.clicked_item: clicked item
 
 # Compare item
+data remove storage pk:common temp.compare
 data modify storage pk:common temp.compare.source set value {}
 data modify storage pk:common temp.compare.source set from storage pk:common temp.array_1[-1]
 execute store success score $item.found pk.temp run data modify storage pk:common temp.compare.source set from storage pk:common temp.array_2[-1]

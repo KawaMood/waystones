@@ -4,8 +4,11 @@
 #   pk:common temp.gui.clicked_item: the clicked item from the GUI
 #   pk:common temp.targeted_waystone: the targeted waystone data
 
+# Don't consume xp if the player got the manager role
+execute if entity @s[tag=pk.waystones.manager] run return fail
+
 # If the waystone ignore xp consumption, stop the current process
-execute if data storage pk:common temp.targeted_waystone.ignore.settings{xp_consumption:1b} run return 1
+execute if data storage pk:common temp.targeted_waystone.ignore.settings{xp_consumption:1b} run return fail
 
 # Prepare scores
 scoreboard players set $xp_consumption.levels pk.temp 0
