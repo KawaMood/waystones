@@ -6,8 +6,8 @@ Craft and place Waystones on your points of interest.
 A survival-friendly and multiplayer-friendly way to quickly travel in your world!
 
 > [!WARNING]  
-> **This presentation concerns the latest version of the data pack available for Minecraft 1.21.4**
-> To find the data pack for the most recent version, check the main branch: https://github.com/KawaMood/waystones
+> **This presentation concerns the latest version of the data pack available for Minecraft 1.21.4**  
+> To find the data pack for the most recent version, check the main branch: https://github.com/KawaMood/waystones  
 > For older versions, check other branches: https://github.com/KawaMood/waystones/branches/all
 
 # 🪄Introduction
