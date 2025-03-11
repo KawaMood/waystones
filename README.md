@@ -5,14 +5,10 @@
 Craft and place Waystones on your points of interest.  
 A survival-friendly and multiplayer-friendly way to quickly travel in your world!
 
-**This presentation concerns the latest version of the data pack**  
-For older ones, you can check them on Github:
-
-- [**V.3.4.1 for 1.21.2 to 1.21.3**](https://github.com/KawaMood/waystones/tree/for_1.21.3)
-- [**V.3.4.1 for 1.21 to 1.21.1**](https://github.com/KawaMood/waystones/tree/for_1.21_to_1.21.1)
-- [**V.3.2.5 for 1.20.3 to 1.20.4**](https://github.com/KawaMood/waystones/tree/for_1.20.3_to_1.20.4)
-- [**V.2.1.6 for 1.20.2**](https://github.com/KawaMood/waystones/tree/for_1.20.2)
-- [**V.2.1.4 for 1.20 to 1.20.1**](https://github.com/KawaMood/waystones/tree/for_1.20_to_1.20.1)
+> [!WARNING]  
+> **This presentation concerns the latest version of the data pack available for Minecraft 1.21.4**
+> To find the data pack for the most recent version, check the main branch: https://github.com/KawaMood/waystones
+> For older versions, check other branches: https://github.com/KawaMood/waystones/branches/all
 
 # 🪄Introduction
 
