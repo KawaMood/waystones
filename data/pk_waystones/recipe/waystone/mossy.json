@@ -14,9 +14,19 @@
         "strings": ["pk_waystones:mossy_waystone"]
       },
       "minecraft:lore": [
-        "{\"color\":\"dark_gray\",\"italic\":false,\"fallback\":\"Mossy Waystone\",\"translate\":\"item.pk_waystones.mossy_waystone\"}"
+        {
+          "color": "dark_gray",
+          "italic": false,
+          "fallback": "Mossy Waystone",
+          "translate": "item.pk_waystones.mossy_waystone"
+        }
       ],
-      "minecraft:item_name": "{\"color\":\"yellow\",\"italic\":false,\"fallback\":\"Mossy Waystone\",\"translate\":\"item.pk_waystones.mossy_waystone\"}",
+      "minecraft:item_name": {
+        "color": "yellow",
+        "italic": false,
+        "fallback": "Mossy Waystone",
+        "translate": "item.pk_waystones.mossy_waystone"
+      },
       "minecraft:custom_data": {
         "pk_data": {
           "custom_block": 1,

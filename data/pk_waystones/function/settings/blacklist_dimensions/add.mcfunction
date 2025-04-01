@@ -11,7 +11,7 @@ $execute store result score $already_contains pk.temp if data storage pk:wayston
 
 # If found
 execute unless score $already_contains pk.temp matches 1.. run data modify storage pk:waystones database.blacklist.dimensions append from storage pk:common temp.dimension
-execute unless score $already_contains pk.temp matches 1.. run tellraw @s [{"text":"Added \"","color":"gray"},{"nbt":"temp.dimension.id","storage":"pk:common","color":"yellow"},{"text":"\" to the blacklisted dimensions","color":"gray"}]
+execute unless score $already_contains pk.temp matches 1.. run tellraw @s [{text:"Added \"",color:"gray"},{nbt:"temp.dimension.id",storage:"pk:common",color:"yellow"},{text:"\" to the blacklisted dimensions",color:"gray"}]
 
 # If not found
-execute if score $already_contains pk.temp matches 1.. run tellraw @s {"text":"This dimension is already blacklisted","color":"red"}
+execute if score $already_contains pk.temp matches 1.. run tellraw @s {text:"This dimension is already blacklisted",color:"red"}

@@ -1,14 +1,16 @@
 #> pk_waystones:_main/uninstall/stop
-# @context the player who had run the uninstallation
 
-# Unmark uninstaller
-tag @s remove pk.waystones.uninstaller
+# Reset uninstalling process score
+scoreboard players set $uninstall pk.value 0
+
+# Unmark player
+tag @s remove pk.uninstall
 
 # Clear the current data pack's specific scores and storage
-function pk_waystones:_main/uninstall/remove_specific_features
+function pk_waystones:_main/uninstall/references/specific
 
 # Clear all KawaMood's data packs scores and storage if no more KawaMood's data packs are installed
-execute unless data storage pk:common installed_datapack[{}] unless data storage pk.common:data Datapacks[{}] run function pk_waystones:_main/uninstall/remove_all_features
+execute unless data storage pk:common installed_datapacks[{}] unless data storage pk.common:data Datapacks[{}] run function pk_waystones:_main/uninstall/references/common
 
 # Logs
-tellraw @s [{"text": "Uninstalled ","color": "yellow"},{"text": "KawaMood's Waystones ","color": "aqua","bold": true},{"text": " successfully"},{"text": "\nYou can now safely remove this data pack from the folder of your world","color": "yellow"}]
+tellraw @s [{text: "Uninstalled ",color: "yellow"},{text: "KawaMood's Waystones ",color: "aqua",bold: true},{text: " successfully"},{text: "\nYou can now safely remove this data pack from the folder of your world",color: "yellow"}]

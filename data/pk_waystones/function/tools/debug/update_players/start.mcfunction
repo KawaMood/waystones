@@ -4,7 +4,7 @@
 #   $fallback (string): optional command to run at the end of the process. Set as empty string if no fallback is required
 
 # Check if an update is in progress
-execute if score $debugging pk.value matches 1 run tellraw @s {"text": "Error: Another debug is already in progress.","color": "red"}
+execute if score $debugging pk.value matches 1 run tellraw @s {text: "Error: Another debug is already in progress.",color: "red"}
 execute if score $debugging pk.value matches 1 run return fail
 
 # @continue Prepare data
@@ -16,7 +16,7 @@ $data modify storage pk:common debug.update_players.fallback set value "$(fallba
 scoreboard players set $debugging pk.value 1
 
 # Logs
-tellraw @s [{"text": "Starting to update all players ...", "color":"gray"}]
+tellraw @s [{text: "Starting to update all players ...", color:"gray"}]
 
 # Mark debugger
 tag @s add pk.debug.update_players

@@ -1,7 +1,7 @@
 #> pk_waystones:blocks/waystone/use/gui/build/toolbar/buttons/shared_with/item
 
 # Prepare item's default data
-data modify storage pk:common temp.gui.item set value {id:"minecraft:writable_book",count:1,components:{"minecraft:custom_name":'[{"text":"Shared List","italic":false}]',"minecraft:lore":['{"text":"Click to get the Writable Book","color":"gray","italic":false}'],"minecraft:bundle_contents":[{id:"minecraft:stick",count:64}],"minecraft:custom_data":{pk_data:{gui:1b,from:"waystones",trigger:"shared_with/taken/run",trigger_params:{allowed:0b},in_accepted_item_slot:1b}},"minecraft:custom_model_data":{strings:["pk_waystones:gui_shared_with_list"]}},Slot:23b}
+data modify storage pk:common temp.gui.item set value {id:"minecraft:writable_book",count:1,components:{"minecraft:custom_name":[{text:"Shared List",italic:false}],"minecraft:lore":[{text:"Click to get the Writable Book",color:"gray",italic:false}],"minecraft:bundle_contents":[{id:"minecraft:stick",count:64}],"minecraft:custom_data":{pk_data:{gui:1b,from:"waystones",trigger:"shared_with/taken/run",trigger_params:{allowed:0b},in_accepted_item_slot:1b}},"minecraft:custom_model_data":{strings:["pk_waystones:gui_shared_with_list"]}},Slot:23b}
 
 # Check permissions
 #   Disallow by default

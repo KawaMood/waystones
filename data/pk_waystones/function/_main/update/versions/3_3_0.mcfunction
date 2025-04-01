@@ -6,4 +6,4 @@ execute if data storage pk:waystones database.waystones[{variant:"regular"}] run
 execute if data storage pk:waystones database.waystones[{variant:"mossy_stone"}] run data modify storage pk:waystones database.waystones[{variant:"mossy_stone"}].variant set value "mossy"
 
 # Update the default name
-execute if data storage pk:waystones database.waystones[{name:'{"text":"Waystone","italic": false,"color": "yellow"}'}] run data modify storage pk:waystones database.waystones[{name:'{"text":"Waystone","italic": false,"color": "yellow"}'}].name set value '{"text":"Waystone"}'
+execute if data storage pk:waystones database.waystones[{name:{text:"Waystone",italic: false,color: "yellow"}}] run data modify storage pk:waystones database.waystones[{name:{text:"Waystone",italic: false,color: "yellow"}}].name set value {text:"Waystone"}

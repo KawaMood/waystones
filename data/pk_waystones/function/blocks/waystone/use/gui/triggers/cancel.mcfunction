@@ -9,7 +9,7 @@ scoreboard players set $trigger.stop pk.temp 1
 execute if data storage pk:common temp.gui.accepted_item run function pk_waystones:blocks/waystone/use/gui/triggers/return_put_item
 
 # Warn player
-$tellraw @s {"text":"$(reason)","color":"red"}
+$tellraw @s {text:"$(reason)",color:"red"}
 
 # Set GUI items from prev tick
 data modify block ~ ~ ~ Items set from storage pk:common temp.gui.prev_tick_items

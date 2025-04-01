@@ -11,5 +11,5 @@ $data modify storage pk:common temp.cooldown set value $(cooldown)
 $scoreboard players set $pk.waystones.settings.tp_cooldown pk.value $(cooldown)
 
 # Warn player
-execute if score $pk.waystones.settings.tp_cooldown pk.value matches 1.. run tellraw @s [{"text":"TP cooldown","color":"yellow"},{"text":" has been set to ","color":"gray"},{"nbt":"temp.cooldown","storage":"pk:common","color":"yellow"},{"text":" tick(s)","color":"gray"}]
-execute unless score $pk.waystones.settings.tp_cooldown pk.value matches 1.. run tellraw @s [{"text":"TP cooldown","color":"yellow"},{"text":" has been disabled","color":"gray"}]
+execute if score $pk.waystones.settings.tp_cooldown pk.value matches 1.. run tellraw @s [{text:"TP cooldown",color:"yellow"},{text:" has been set to ",color:"gray"},{nbt:"temp.cooldown",storage:"pk:common",color:"yellow"},{text:" tick(s)",color:"gray"}]
+execute unless score $pk.waystones.settings.tp_cooldown pk.value matches 1.. run tellraw @s [{text:"TP cooldown",color:"yellow"},{text:" has been disabled",color:"gray"}]

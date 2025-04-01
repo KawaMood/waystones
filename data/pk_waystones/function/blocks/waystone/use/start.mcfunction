@@ -31,4 +31,4 @@ stopsound @a[distance=..30] block block.barrel.open
 playsound block.grindstone.use block @a[distance=..30] ~ ~ ~ 0.5 1.1
 
 # Debug logs
-execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]","color": "gray"},{"text": " started to use waystone at ["},{"nbt":"x","block":"~ ~ ~"},{"text": ","},{"nbt":"y","block":"~ ~ ~"},{"text": ","},{"nbt":"z","block":"~ ~ ~"},{"text": "]"}]
+execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " started to use waystone at ["},{nbt:"x","block":"~ ~ ~"},{text: ","},{nbt:"y","block":"~ ~ ~"},{text: ","},{nbt:"z","block":"~ ~ ~"},{text: "]"}]

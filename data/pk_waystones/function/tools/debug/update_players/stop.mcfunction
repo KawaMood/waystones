@@ -1,7 +1,7 @@
 #> pk_waystones:tools/debug/update_players/stop
 
 # Logs
-tellraw @a[tag=pk.debug.update_players] [{"text": "Updated all players successfully", "color": "gray"}]
+tellraw @a[tag=pk.debug.update_players] [{text: "Updated all players successfully", color: "gray"}]
 
 # Reset score
 scoreboard players reset $debugging pk.value

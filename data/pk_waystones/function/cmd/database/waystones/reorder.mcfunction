@@ -7,7 +7,7 @@
 data remove storage pk:common temp.args
 $data modify storage pk:common temp.args.ids set value $(ids)
 
-execute unless data storage pk:common temp.args.ids[0] run tellraw @s {"text":"\"ids\" must be a list of integers","color":"red"}
+execute unless data storage pk:common temp.args.ids[0] run tellraw @s {text:"\"ids\" must be a list of integers",color:"red"}
 execute unless data storage pk:common temp.args.ids[0] run return 0
 
 execute if data storage pk:common temp.args.ids[0] run function pk_waystones:tools/database/reorder/waystones/1

@@ -23,4 +23,4 @@ execute as @a[tag=pk.current.player,limit=1] at @s anchored eyes positioned ^ ^ 
 stopsound @a[distance=..30] block block.barrel.close
 
 # Debug logs
-execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]","color": "gray"},{"text": " closed waystone at ["},{"nbt":"x","block":"~ ~ ~"},{"text": ","},{"nbt":"y","block":"~ ~ ~"},{"text": ","},{"nbt":"z","block":"~ ~ ~"},{"text": "]"}]
+execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " closed waystone at ["},{nbt:"x","block":"~ ~ ~"},{text: ","},{nbt:"y","block":"~ ~ ~"},{text: ","},{nbt:"z","block":"~ ~ ~"},{text: "]"}]

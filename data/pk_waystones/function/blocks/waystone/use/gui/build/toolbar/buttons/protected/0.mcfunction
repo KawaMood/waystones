@@ -1,7 +1,7 @@
 #> pk_waystones:blocks/waystone/use/gui/build/toolbar/buttons/protected/0
 
 # Prepare item's default data
-data modify storage pk:common temp.gui.item set value {id:"minecraft:leather_chestplate",count:1,components:{"minecraft:custom_name":'[{"text":"Protection: ","italic":false},{"text":"Disabled","color":"gray"}]',"minecraft:lore":['{"text":"Click to enable protection","color":"gray","italic":false}'],"minecraft:attribute_modifiers":{modifiers:[],show_in_tooltip:false},"minecraft:dyed_color":{rgb:6120292,show_in_tooltip:false},"minecraft:bundle_contents":[{id:"minecraft:stick",count:64}],"minecraft:custom_data":{pk_data:{gui:1b,from:"waystones",trigger:"protected/change",trigger_params:{allowed:0b,protected:1b}}},"minecraft:custom_model_data":{strings:["pk_waystones:gui_protection_false"]}},Slot:22b}
+data modify storage pk:common temp.gui.item set value {id:"minecraft:leather_chestplate",count:1,components:{"minecraft:custom_name":[{text:"Protection: ",italic:false},{text:"Disabled",color:"gray"}],"minecraft:lore":[{text:"Click to enable protection",color:"gray",italic:false}],"minecraft:attribute_modifiers":[],"minecraft:dyed_color":6120292,"minecraft:bundle_contents":[{id:"minecraft:stick",count:64}],"minecraft:tooltip_display":{hidden_components:["minecraft:dyed_color","minecraft:attribute_modifiers"]},"minecraft:custom_data":{pk_data:{gui:1b,from:"waystones",trigger:"protected/change",trigger_params:{allowed:0b,protected:1b}}},"minecraft:custom_model_data":{strings:["pk_waystones:gui_protection_false"]}},Slot:22b}
 
 # Check permissions
 #   Disallow by default

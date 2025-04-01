@@ -7,5 +7,5 @@ scoreboard players operation @s pk.custom_block.component.id = $temp pk.custom_b
 data modify entity @s Tags set value ["pk.custom_block","pk.waystones.waystone","pk.waystones.waystone.component","pk.waystones.waystone.name"]
 
 # Set data
-execute unless data storage pk:common temp.waystone{name:'{"text":"Waystone"}'} run data modify entity @s text set from storage pk:common temp.waystone.name
+execute unless data storage pk:common temp.waystone{name:{text:"Waystone"}} run data modify entity @s text set from storage pk:common temp.waystone.name
 data modify entity @s billboard set value "center"

@@ -11,5 +11,5 @@ execute unless score $pk.waystones.version pk.value matches 30302.. run function
 execute unless score $pk.waystones.version pk.value matches 30400.. run function pk_waystones:_main/update/versions/3_4_0
 
 # Set the data pack current version score
-scoreboard players set $pk.waystones.version pk.value 30403
-data modify storage pk:common installed_datapacks[{id:"waystones"}].version set value "3.4.3"
+scoreboard players set $pk.waystones.version pk.value 30404
+data modify storage pk:common installed_datapacks[{id:"waystones"}].version set value "3.4.4"

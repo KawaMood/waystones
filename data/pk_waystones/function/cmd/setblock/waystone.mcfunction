@@ -10,7 +10,7 @@ scoreboard players set $pk.custom_block.placed_by_command pk.temp 1
 
 # Try to set data
 $data modify storage pk:common temp.command.params.waystone set value $(waystone)
-execute unless data storage pk:common temp.command.params.waystone{} run return run tellraw @s {"text": "Wrong data format for \"waystone\"","color": "red"}
+execute unless data storage pk:common temp.command.params.waystone{} run return run tellraw @s {text: "Wrong data format for \"waystone\"",color: "red"}
 
 # Place
 execute align xyz run function pk_waystones:blocks/waystone/place/run

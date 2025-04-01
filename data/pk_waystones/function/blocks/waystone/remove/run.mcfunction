@@ -27,4 +27,4 @@ setblock ~ ~ ~ air
 kill @e[type=#pk_waystones:custom_block/components,tag=pk.waystones.waystone.component,predicate=pk_waystones:scores/custom_block/component_id/match_temp,distance=..10]
 
 # Debug logs
-execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"text": "Waystone at [", "color": "gray"},{"nbt":"temp.waystone.location.x","storage":"pk:common"},{"text": ","},{"nbt":"temp.waystone.location.y","storage":"pk:common"},{"text": ","},{"nbt":"temp.waystone.location.z","storage":"pk:common"},{"text": "] in "},{"nbt":"temp.waystone.location.dimension","storage":"pk:common"},{"text": " has been removed"}]
+execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{text: "Waystone at [", color: "gray"},{nbt:"temp.waystone.location.x",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.y",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.z",storage:"pk:common"},{text: "] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common"},{text: " has been removed"}]

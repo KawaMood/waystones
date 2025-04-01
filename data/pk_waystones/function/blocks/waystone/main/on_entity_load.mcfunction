@@ -21,4 +21,4 @@ execute if score $controller.version pk.temp < $pk.waystones.version pk.value ru
 function pk_waystones:blocks/waystone/main/settings/check
 
 # Debug logs
-execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"text": "Waystone loaded at [","color": "gray"},{"nbt":"temp.waystone.location.x","storage":"pk:common"},{"text": ","},{"nbt":"temp.waystone.location.y","storage":"pk:common"},{"text": ","},{"nbt":"temp.waystone.location.z","storage":"pk:common"},{"text": "] in "},{"nbt":"temp.waystone.location.dimension","storage":"pk:common"}]
+execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{text: "Waystone loaded at [",color: "gray"},{nbt:"temp.waystone.location.x",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.y",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.z",storage:"pk:common"},{text: "] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common"}]

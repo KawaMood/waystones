@@ -5,4 +5,4 @@ data modify storage pk:common temp.new_waystones append from storage pk:common t
 data modify storage pk:waystones database.waystones set from storage pk:common temp.new_waystones
 
 # Logs
-tellraw @s [{"text": "Reordered all waystones successfully","color": "yellow"}]
+tellraw @s [{text: "Reordered all waystones successfully",color: "yellow"}]

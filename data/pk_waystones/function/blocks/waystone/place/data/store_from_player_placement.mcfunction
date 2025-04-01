@@ -7,7 +7,7 @@ execute store result storage pk:common temp.waystone.id int 1 run scoreboard pla
 # Variant
 data modify storage pk:common temp.waystone.variant set from storage pk:common temp.block.components."minecraft:custom_data".pk_data.variant
 # Name
-data modify storage pk:common temp.waystone.name set value '{"text":"Waystone"}'
+data modify storage pk:common temp.waystone.name set value {text:"Waystone"}
 data modify storage pk:common temp.waystone.name set from storage pk:common temp.item.components."minecraft:custom_name"
 # Protection
 execute if score $pk.waystones.settings.default_protection pk.value matches 1 run data modify storage pk:common temp.waystone.protected set value 1b

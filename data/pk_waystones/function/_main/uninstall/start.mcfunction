@@ -1,8 +1,13 @@
 #> pk_waystones:_main/uninstall/start
 
-tag @s add pk.waystones.uninstaller
-tellraw @s [{"text": "Starting ","color": "gray"},{"text": "KawaMood's Waystones","color": "aqua","bold": true},{"text": " uninstallation...","color": "gray"}]
-execute store result score $pk.waystones.uninstall.waystones.length pk.value run data get storage pk:waystones database.waystones
-data modify storage pk:waystones uninstall.waystones set from storage pk:waystones database.waystones
-execute if score $pk.waystones.uninstall.waystones.length pk.value matches 0 run function pk_waystones:_main/uninstall/stop
-execute if score $pk.waystones.uninstall.waystones.length pk.value matches 1.. run function pk_waystones:_main/uninstall/1
+# @return check if an uninstalling process is already running
+execute if score $uninstall pk.value matches 1 run return run tellraw @s {text: "An uninstalling process is already running",color:"red"}
+
+# Set uninstalling process score
+scoreboard players set $uninstall pk.value 1
+
+# Mark player
+tag @s add pk.uninstall
+
+# Remove waystones
+function pk_waystones:_main/uninstall/feature/start {feature_storage_path:"pk:waystones database.waystones",callback:"function pk_waystones:_main/uninstall/callback/after_removing_waystones",feature_id:"waystone"}
