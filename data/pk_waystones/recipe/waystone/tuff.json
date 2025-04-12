@@ -27,13 +27,14 @@
         "fallback": "Tuff Waystone",
         "translate": "item.pk_waystones.tuff_waystone"
       },
+      "!minecraft:equippable": {},
       "minecraft:custom_data": {
         "pk_data": {
           "custom_block": 1,
           "id": "waystone",
           "from": "waystones",
           "variant": "tuff",
-          "version": 30402
+          "version": 30405
         }
       },
       "minecraft:profile": {

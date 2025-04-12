@@ -27,13 +27,14 @@
         "fallback": "Deepslate Waystone",
         "translate": "item.pk_waystones.deepslate_waystone"
       },
+      "!minecraft:equippable": {},
       "minecraft:custom_data": {
         "pk_data": {
           "custom_block": 1,
           "id": "waystone",
           "from": "waystones",
           "variant": "deepslate",
-          "version": 30402
+          "version": 30405
         }
       },
       "minecraft:profile": {
