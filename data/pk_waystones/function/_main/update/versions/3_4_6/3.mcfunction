@@ -1,0 +1,1 @@
+$data modify storage pk:waystones database.waystones[$(i)].name set value $(name)
