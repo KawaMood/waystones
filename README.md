@@ -286,6 +286,18 @@ Note that another command is usable by non-op players and allow them to hide coo
 
 </details>
 <details>
+<summary>List public waystones first in the waystones GUI</summary>
+
+If enabled, public waystones will be listed first in waystones GUI. By default, public waystones come after discovered and private waystones. You can **enable**, **disable** or **get** the current state of the setting using these following commands respectively:
+
+```
+/function pk_waystones:settings/list_public_waystones_first/true
+/function pk_waystones:settings/list_public_waystones_first/false
+/function pk_waystones:settings/list_public_waystones_first/get
+```
+
+</details>
+<details>
 <summary>Lootable Delay (for Worldguard and WG-like plugins compatiblity)</summary>
 
 This setting allows you to adjust the minimal delay before a waystone can drop itself when broken. It is useful if you use a plugin that provides an area protection system.
