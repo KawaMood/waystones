@@ -523,17 +523,40 @@ Note that regular players will still see their private waystones first, then dis
 You can find the ids of waystones by granting yourself the manager role (using `/tag @s add pk.waystones.manager`) and hovering them in a waystone's GUI. They will be displayed in their tooltip.
 
 </details>
+
+## Usable by any (non-op) player
+
 <details>
-<summary>(For non-op players) Hide locations from the waystones list</summary>
+<summary>Hide locations from the waystones list</summary>
 
-This command can be used even by players who aren't operators on the server. It allows you to hide coordinates of waystones from waystones' GUI. It can be useful if you're a video maker who plays on a PvP server, and don't want to leak your waystones' location.  
+It allows you to hide coordinates of waystones from waystones' GUI. It can be useful if you're a video maker who plays on a PvP server, and don't want to leak your waystones' location.  
 Of course, this setting is player-specific. Meaning by changing it, it will only apply for yourself (not for other players).  
-Using these following commands, if the value is set on **1**, waystones' location will be hidden, if set on **0**, waystones' location will show:
+Using these following commands, if the value is set on **1**, waystones' location will be hidden, if set on **2**, waystones' location will show:
 
 ```
-/trigger pk.waystones.hide_coordinates set 1
-/trigger pk.waystones.hide_coordinates set 0
+/trigger pk.waystones.trigger.hide_coordinates set 1
+/trigger pk.waystones.trigger.hide_coordinates set 2
 ```
+
+</details>
+<details>
+<summary>Forget a discovered or private waystone</summary>
+
+It allows you to forget about a waystone you have discovered or a private one you have been registered on, so this same waystone won't appear in the list anymore, until you discover it you or you are registered back in the "shared with" list.  
+It can be used when you want to clean your waystones list.
+
+```
+/trigger pk.waystones.trigger.forget_waystone set <id>
+```
+
+Where `<id>` expects the id of a waystone.
+For example, trying to forget about the waystone with id `100`:
+
+```
+/trigger pk.waystones.trigger.forget_waystone set 100
+```
+
+You can see waytones id by using one to open the GUI, then hovering the waystone to forgot, the id will be shown in the tooltip. If you want to forget about the currently used waystone, its id is shown after the waystone name on the top of the GUI.
 
 </details>
 

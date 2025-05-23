@@ -6,8 +6,6 @@
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 # Store the current gametime
 execute store result score $gametime pk.value run time query gametime
-# Allow players to change their own waystones-related settings
-scoreboard players enable @a pk.waystones.hide_coordinates
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Settings:
@@ -19,7 +17,14 @@ scoreboard players remove @a[scores={pk.waystones.tp_cooldown=1..}] pk.waystones
 # Events:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 # Player joined back
-execute as @a[scores={pk.waystones.leave_game=1..}] at @s run function pk_waystones:events/player/joined_back/run
+execute as @a[scores={pk.waystones.leave_game=1..}] at @s run function pk_waystones:events/player/joined_back/_run
+# Trigger
+#   Forget discovered/private waystone
+scoreboard players enable @a pk.waystones.trigger.forget_waystone
+execute as @a unless score @s pk.waystones.trigger.forget_waystone matches 0 run function pk_waystones:events/player/trigger/forget_waystone/_run
+#   Hide waystones coordinates in the waystones GUI
+scoreboard players enable @a pk.waystones.trigger.hide_coordinates
+execute as @a unless score @s pk.waystones.trigger.hide_coordinates matches 0 run function pk_waystones:events/player/trigger/hide_coordinates/_run
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Custom blocks:

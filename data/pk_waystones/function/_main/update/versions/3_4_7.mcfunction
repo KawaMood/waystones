@@ -1,0 +1,1 @@
+scoreboard objectives remove pk.waystones.hide_coordinates

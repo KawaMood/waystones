@@ -44,9 +44,9 @@ execute if score $pk.waystones.settings.xp_consumption.value pk.value matches 1.
 execute if data storage pk:common temp.visible_waystone.owner run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/owner
 execute unless data storage pk:common temp.visible_waystone.owner run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Unclaimed",color:"gray",italic:false}
 
-# Set id in lore (manager only)
-execute if entity @s[tag=pk.waystones.manager] run data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"id: ",color:"gray",italic:false},{nbt:"temp.visible_waystone.id",storage:"pk:common"}]
-execute if entity @s[tag=pk.waystones.manager] run data modify storage pk:common temp.gui.item.components."minecraft:lore" append from block ~ ~-1 ~ front_text.messages[0]
+# Set id in lore
+data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"id: ",color:"gray",italic:false},{nbt:"temp.visible_waystone.id",storage:"pk:common"}]
+data modify storage pk:common temp.gui.item.components."minecraft:lore" append from block ~ ~-1 ~ front_text.messages[0]
 
 # Append to GUI items
 data modify storage pk:common temp.gui.items append from storage pk:common temp.gui.item

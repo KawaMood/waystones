@@ -45,12 +45,15 @@ scoreboard objectives add pk.waystones.page dummy
 scoreboard objectives add pk.waystones.animations.timer dummy
 #   Used to link players with their vehicle or pets
 scoreboard objectives add pk.waystones.group.id dummy
-#   Used to allow a player to change its ability to see coordinates from the Waystones GUI (safety for video makers):
-scoreboard objectives add pk.waystones.hide_coordinates trigger
 #   Used to store cooldown before a player can tp to another waystone
 scoreboard objectives add pk.waystones.tp_cooldown dummy
 #   Used to store gametime to some entities to know when they were loaded last time
 scoreboard objectives add pk.waystones.gametime dummy
+#   Used to allow a player to change its ability to see coordinates from the Waystones GUI (safety for video makers):
+scoreboard objectives add pk.waystones.trigger.hide_coordinates trigger
+scoreboard objectives add pk.waystones.player_setting.hide_coordinates dummy
+#   Used to allow the players to forget discovered/private waystones
+scoreboard objectives add pk.waystones.trigger.forget_waystone trigger
 
 # Consts
 scoreboard players set $-1 pk.value -1
