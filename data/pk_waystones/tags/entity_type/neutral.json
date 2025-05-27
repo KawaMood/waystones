@@ -1,9 +1,9 @@
 {
-  "_version": "1.19.4",
   "replace": false,
   "values": [
     "minecraft:bee",
     "minecraft:cave_spider",
+    "minecraft:creaking",
     "minecraft:dolphin",
     "minecraft:drowned",
     "minecraft:enderman",
