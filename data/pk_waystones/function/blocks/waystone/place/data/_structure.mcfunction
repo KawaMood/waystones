@@ -8,6 +8,7 @@
 #   y (int): y coordinate
 #   z (int): z coordinate
 #   dimension (string): dimension id
+# facing (string): the facing direction which defines where entities lands
 # discovered_by (list of entries): list of players having interacted with this Waystone
 #   (entry)
 #      uuid (4 int array): UUID of a player

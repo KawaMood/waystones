@@ -1,7 +1,7 @@
 #> pk_waystones:blocks/waystone/place/data/store_from_player_placement
 
 # Data with default values: visibility, discovered_by, shared_with, protected, render_item
-data modify storage pk:common temp.waystone set value {visibility:"discover",discovered_by:[],shared_with:[],protected:0b,render_item:{id:"minecraft:grass_block"}} 
+data modify storage pk:common temp.waystone set value {visibility:"discover",discovered_by:[],shared_with:[],protected:0b,render_item:{id:"minecraft:grass_block"},facing:"east"} 
 # Id
 execute store result storage pk:common temp.waystone.id int 1 run scoreboard players get $temp pk.custom_block.component.id
 # Variant
@@ -21,6 +21,10 @@ data modify storage pk:common temp.waystone.location.dimension set from entity @
 data modify storage pk:common temp.waystone.location.x set from storage pk:common temp.block.x
 data modify storage pk:common temp.waystone.location.y set from storage pk:common temp.block.y
 data modify storage pk:common temp.waystone.location.z set from storage pk:common temp.block.z
+# Facing
+execute if entity @s[y_rotation=-135..-45] run data modify storage pk:common temp.waystone.facing set value "west"
+execute if entity @s[y_rotation=-44.999999..44.999999] run data modify storage pk:common temp.waystone.facing set value "north"
+execute if entity @s[y_rotation=135..224.999999] run data modify storage pk:common temp.waystone.facing set value "south"
 # Discovered by
 data remove storage pk:common temp.entry
 data modify storage pk:common temp.entry.uuid set from entity @s UUID

@@ -5,7 +5,7 @@
 #       @within function pk_waystones:cmd/blocks/waystone/place
 
 # Data with default values: visibility, discovered_by, shared_with, protected, render_item
-data modify storage pk:common temp.waystone set value {variant:"andesite",visibility:"discover",discovered_by:[],shared_with:[],protected:0b,render_item:{id:"minecraft:grass_block"},name:{text:"Waystone"},location:{dimension:"minecraft:overworld"}} 
+data modify storage pk:common temp.waystone set value {variant:"andesite",visibility:"discover",discovered_by:[],shared_with:[],protected:0b,render_item:{id:"minecraft:grass_block"},name:{text:"Waystone"},location:{dimension:"minecraft:overworld"},facing:"east"} 
 # Id
 data modify storage pk:common temp.waystone.id set from storage pk:common temp.command.params.waystone.id
 execute unless data storage pk:common temp.waystone.id store result storage pk:common temp.waystone.id int 1 run scoreboard players get $temp pk.custom_block.component.id
@@ -22,6 +22,8 @@ data modify storage pk:common temp.waystone.owner set from storage pk:common tem
 # Location
 data modify storage pk:common temp.waystone.location.dimension set from storage pk:common temp.command.params.waystone.location.dimension
 execute summon marker run function pk_waystones:blocks/waystone/place/data/store_from_command_placement/set_location
+# Facing
+data modify storage pk:common temp.waystone.facing set from storage pk:common temp.command.params.waystone.facing
 # Discovered by
 execute if data storage pk:common temp.command.params.waystone.discovered_by[{}] run data modify storage pk:common temp.waystone.discovered_by set from storage pk:common temp.command.params.waystone.discovered_by
 # Shared with

@@ -14,19 +14,13 @@ scoreboard players add $y pk.temp 5
 scoreboard players add $z pk.temp 5
 
 # Prepare offset (on X or Z axis)
-scoreboard players set $random pk.temp 0
-#   If the player has at least a companion or a vehicle (2 blocks to avoid horse or larger entities to suffocate in waystone)
-execute if predicate pk_waystones:gameplay/has_vehicle_or_companion store result score $random pk.temp run random value -4..-1
-execute if score $random pk.temp matches -4 run scoreboard players add $x pk.temp 20
-execute if score $random pk.temp matches -3 run scoreboard players remove $x pk.temp 20
-execute if score $random pk.temp matches -2 run scoreboard players add $z pk.temp 20
-execute if score $random pk.temp matches -1 run scoreboard players remove $z pk.temp 20
-#   If the player is alone (1 block)
-execute unless predicate pk_waystones:gameplay/has_vehicle_or_companion store result score $random pk.temp run random value 1..4
-execute if score $random pk.temp matches 1 run scoreboard players add $x pk.temp 10
-execute if score $random pk.temp matches 2 run scoreboard players remove $x pk.temp 10
-execute if score $random pk.temp matches 3 run scoreboard players add $z pk.temp 10
-execute if score $random pk.temp matches 4 run scoreboard players remove $z pk.temp 10
+scoreboard players set $offset pk.temp 10
+execute if predicate pk_waystones:gameplay/has_vehicle_or_companion run scoreboard players add $offset pk.temp 10
+execute unless data storage pk:common temp.targeted_waystone.facing run scoreboard players operation $z pk.temp -= $offset pk.temp
+execute if data storage pk:common temp.targeted_waystone{facing:"west"} run scoreboard players operation $x pk.temp -= $offset pk.temp
+execute if data storage pk:common temp.targeted_waystone{facing:"east"} run scoreboard players operation $x pk.temp += $offset pk.temp
+execute if data storage pk:common temp.targeted_waystone{facing:"north"} run scoreboard players operation $z pk.temp -= $offset pk.temp
+execute if data storage pk:common temp.targeted_waystone{facing:"south"} run scoreboard players operation $z pk.temp += $offset pk.temp
 
 # Store the landing point coordinates and dimension in storage
 data modify storage pk:common temp.landing_point.dimension set from storage pk:common temp.targeted_waystone.location.dimension
