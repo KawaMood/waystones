@@ -31,6 +31,7 @@ Base blocks to use depend on the desired variant of waystone to get:
 - **Copper Block** for Copper Waystone
 - **Prismarine Bricks** for Prismarine Waystone
 - **Tuff** for Tuff Waystone
+- **Red Sandstone** for Red Sand Waystone
 
 ![waystone recipes](https://cdn.modrinth.com/data/cached_images/b4c50ca9b270a5af87633d3faab072183732601c.gif)
 
