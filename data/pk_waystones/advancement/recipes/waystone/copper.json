@@ -23,8 +23,15 @@
       }
     }
   },
-  "requirements": [["has_the_recipe", "has_an_ingredient"]],
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_an_ingredient"
+    ]
+  ],
   "rewards": {
-    "recipes": ["pk_waystones:waystone/copper"]
+    "recipes": [
+      "pk_waystones:waystone/copper"
+    ]
   }
 }

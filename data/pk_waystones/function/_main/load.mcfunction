@@ -11,15 +11,15 @@
 #declare storage pk:waystones
 
 # Initialize PK data packs storage if needed
-execute unless data storage pk:common installed_datapacks[{}] run data modify storage pk:common installed_datapacks set value []
+execute unless data storage pk:common installed_datapacks run data modify storage pk:common installed_datapacks set value []
 
 # Add current data pack into the PK data packs storage if needed
 execute unless data storage pk:common installed_datapacks[{id:"waystones"}] run data modify storage pk:common installed_datapacks append value {name:"Waystones",id:"waystones"}
 
 # Initialize the storage used to store Waystones data
-execute unless data storage pk:waystones database.waystones[{}] run data modify storage pk:waystones database.waystones set value []
-execute unless data storage pk:waystones database.players[{}] run data modify storage pk:waystones database.players set value []
-execute unless data storage pk:waystones database.blacklist.dimensions[{}] run function pk_waystones:_main/install/initialize_blacklisted_dimensions
+execute unless data storage pk:waystones database.waystones run data modify storage pk:waystones database.waystones set value []
+execute unless data storage pk:waystones database.players run data modify storage pk:waystones database.players set value []
+execute unless data storage pk:waystones database.blacklist.dimensions run function pk_waystones:_main/install/initialize_blacklisted_dimensions
 
 # Clear temp
 data remove storage pk:common temp
@@ -69,7 +69,7 @@ function pk_waystones:packages/air_toggling/load
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Updates:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
-function pk_waystones:_main/update/_run
+function pk_waystones:_main/update/run
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Logs:

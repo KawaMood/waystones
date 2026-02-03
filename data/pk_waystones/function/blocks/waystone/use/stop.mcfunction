@@ -6,6 +6,9 @@ scoreboard players operation $temp pk.custom_block.interaction.id = @s pk.custom
 scoreboard players operation $temp pk.custom_block.component.id = @s pk.custom_block.component.id
 scoreboard players set $use.stop pk.temp 1
 
+# Public hook: waystone_close_before
+function #pk_waystones:public/waystone_close_before
+
 # Update controller
 function pk_waystones:blocks/waystone/use/components/controller/update_on_stop
 
@@ -21,6 +24,9 @@ execute as @a[tag=pk.current.player,limit=1] at @s anchored eyes positioned ^ ^ 
 
 # Animations
 stopsound @a[distance=..30] block block.barrel.close
+
+# Public hook: waystone_close_after
+function #pk_waystones:public/waystone_close_after
 
 # Debug logs
 execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " closed waystone at ["},{nbt:"x","block":"~ ~ ~"},{text: ","},{nbt:"y","block":"~ ~ ~"},{text: ","},{nbt:"z","block":"~ ~ ~"},{text: "]"}]

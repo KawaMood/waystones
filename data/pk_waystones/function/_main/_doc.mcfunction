@@ -39,6 +39,6 @@
 # Tags:
 # ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――
 # pk.dev: Allow player to see data packs specific logs
-tag @s add pk.dev
+# tag @s add pk.dev
 # pk.waystones.manager Allow player to bypass restrictions and manage other players Waystones
-tag @s add pk.waystones.manager
+# tag @s add pk.waystones.manager

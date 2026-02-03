@@ -2,7 +2,6 @@
   "condition": "minecraft:any_of",
   "terms": [
     {
-      "_comment": "Coordinates have been hidden for the current player",
       "condition": "minecraft:entity_scores",
       "entity": "this",
       "scores": {
@@ -13,7 +12,6 @@
       }
     },
     {
-      "_comment": "Coordinates are hidden for all players and the current player isn't a manager",
       "condition": "minecraft:all_of",
       "terms": [
         {

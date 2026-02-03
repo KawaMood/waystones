@@ -12,6 +12,9 @@ execute align xyz positioned ~0.4995 ~-0.0005 ~0.4995 summon interaction run fun
 # Store the currently used waystone data and prepare the page score
 function pk_waystones:blocks/waystone/use/data/used_waystone/get
 
+# Public hook: waystone_opened
+function #pk_waystones:public/waystone_open_before
+
 # Assign the user as owner if the used waystone is unclaimed
 execute unless data storage pk:common temp.used_waystone.owner run function pk_waystones:blocks/waystone/use/data/assign_owner_if_unclaimed
 
@@ -29,6 +32,9 @@ function pk_waystones:blocks/waystone/use/gui/build/run
 # Animations
 stopsound @a[distance=..30] block block.barrel.open
 playsound block.grindstone.use block @a[distance=..30] ~ ~ ~ 0.5 1.1
+
+# Public hook: waystone_opened
+function #pk_waystones:public/waystone_open_after
 
 # Debug logs
 execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " started to use waystone at ["},{nbt:"x","block":"~ ~ ~"},{text: ","},{nbt:"y","block":"~ ~ ~"},{text: ","},{nbt:"z","block":"~ ~ ~"},{text: "]"}]

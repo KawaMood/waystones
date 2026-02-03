@@ -7,6 +7,9 @@
 # Scores
 execute store result score $temp pk.custom_block.component.id run data get storage pk:common temp.waystone.id
 
+# Public hook: waystone_place_before
+function #pk_waystones:public/waystone_replace_before
+
 # Define a render item if needed
 execute unless data storage pk:common temp.waystone.render_item run function pk_waystones:blocks/waystone/place/replace/render_item
 
@@ -27,3 +30,6 @@ function pk_waystones:blocks/waystone/place/components/skins/parts/common with s
 # Place blocks
 setblock ~ ~ ~ barrier
 execute positioned ~ ~1 ~ run function pk_waystones:blocks/waystone/place/available_container
+
+# Public hook: waystone_place_after
+function #pk_waystones:public/waystone_place_after

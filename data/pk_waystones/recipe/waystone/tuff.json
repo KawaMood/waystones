@@ -1,6 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [" E ", "ALA", "PPP"],
+  "pattern": [
+    " E ",
+    "ALA",
+    "PPP"
+  ],
   "key": {
     "E": "minecraft:ender_eye",
     "A": "minecraft:amethyst_shard",
@@ -11,7 +15,9 @@
     "id": "minecraft:player_head",
     "components": {
       "minecraft:custom_model_data": {
-        "strings": ["pk_waystones:tuff_waystone"]
+        "strings": [
+          "pk_waystones:tuff_waystone"
+        ]
       },
       "minecraft:lore": [
         {

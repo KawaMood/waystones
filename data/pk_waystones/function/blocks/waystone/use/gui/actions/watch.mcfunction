@@ -28,10 +28,16 @@ data modify storage pk:common temp.gui.prev_tick_items set from entity @e[type=m
 # Store clicked item in case of swap action (click a button while already holding an item in cursor)
 execute if score $gui.action.click pk.temp matches 1.. run function pk_waystones:blocks/waystone/use/gui/actions/click/search_item_start
 
+# Public hook: gui_action_before
+function #pk_waystones:public/gui_action_before
+
 # Switch actions
 execute if score $gui.action.put pk.temp matches 1.. run function pk_waystones:blocks/waystone/use/gui/actions/put/run
 execute if score $gui.action.click pk.temp matches 1.. run function pk_waystones:blocks/waystone/use/gui/actions/click/run
 execute if score $gui.action.drop pk.temp matches 1.. run function pk_waystones:blocks/waystone/use/gui/actions/drop/run
+
+# Public hook: gui_action_after
+function #pk_waystones:public/gui_action_after
 
 # Update the cached data of the controller
 data modify entity @e[type=marker,tag=pk.waystones.waystone.controller,distance=..0.1,limit=1] data.waystone.gui.prev_tick_items set from block ~ ~ ~ Items

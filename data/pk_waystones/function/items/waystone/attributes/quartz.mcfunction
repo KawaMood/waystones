@@ -1,0 +1,4 @@
+#> pk_waystones:items/waystone/attributes/quartz
+# Returns data of item used to create a dynamic item into storage pk:common temp.attributes
+
+data modify storage pk:common temp.attributes set value {id:"minecraft:player_head",components:{"minecraft:custom_model_data":{strings:["pk_waystones:quartz_waystone"]},"minecraft:lore":[{color:"dark_gray",italic:false,"translate":"item.pk_waystones.quartz_waystone","fallback":"Quartz Waystone"}],"minecraft:item_name":{color:"yellow",italic:false,"translate":"item.pk_waystones.quartz_waystone","fallback":"Quartz Waystone"},"!minecraft:equippable":{},"minecraft:custom_data":{pk_data:{custom_block:1b,id:"waystone",from:"waystones",variant:"quartz",version:30405s}},"minecraft:profile":{properties:[{name:"textures",value:"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHBzOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzY1ZDU3OGIwMjkxZGEyOTY2ZDg4MTFhODViMzQ0NTBkZjcwMGUxNDEwOTUwMDAxNWYyYzc3ZDdiODU4YTMwOGEifX19"}]}},count:1}

@@ -8,6 +8,9 @@
 scoreboard players add $next pk.custom_block.component.id 1
 scoreboard players operation $temp pk.custom_block.component.id = $next pk.custom_block.component.id
 
+# Public hook: waystone_place_before
+function #pk_waystones:public/waystone_place_before
+
 # Prepare data and store them to database
 execute if score $pk.custom_block.placed_by_player pk.temp matches 1 run function pk_waystones:blocks/waystone/place/data/store_from_player_placement
 execute if score $pk.custom_block.placed_by_command pk.temp matches 1 run function pk_waystones:blocks/waystone/place/data/store_from_command_placement/run
@@ -27,6 +30,9 @@ execute positioned ~ ~1 ~ run function pk_waystones:blocks/waystone/place/availa
 
 # Animations
 playsound block.beacon.ambient ambient @a[distance=..30] ~ ~ ~ 1 1.75
+
+# Public hook: waystone_place_after
+function #pk_waystones:public/waystone_place_after
 
 # Debug logs
 execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " placed Waystone at ["},{nbt:"temp.waystone.location.x",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.y",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.z",storage:"pk:common"},{text: "] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common"}]

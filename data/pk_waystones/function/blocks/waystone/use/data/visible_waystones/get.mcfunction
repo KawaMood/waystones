@@ -32,8 +32,8 @@ function pk_waystones:blocks/waystone/use/data/visible_waystones/filters/discove
 data modify storage pk:common temp.array_1 append from storage pk:common temp.filter.output[]
 
 # Visibility public
-execute if score $pk.waystones.settings.list_public_waystones_first pk.value matches 1.. run data modify storage pk:common temp.array_1 append from storage pk:common temp.visible_waystones[{visibility:"public"}]
-execute unless score $pk.waystones.settings.list_public_waystones_first pk.value matches 1.. run data modify storage pk:common temp.array_1 prepend from storage pk:common temp.visible_waystones[{visibility:"public"}]
+execute if score $pk.waystones.settings.list_public_waystones_first pk.value matches 1.. run data modify storage pk:common temp.array_1 prepend from storage pk:common temp.visible_waystones[{visibility:"public"}]
+execute unless score $pk.waystones.settings.list_public_waystones_first pk.value matches 1.. run data modify storage pk:common temp.array_1 append from storage pk:common temp.visible_waystones[{visibility:"public"}]
 
 # Set visible waystones list from the temp array
 data modify storage pk:common temp.visible_waystones set from storage pk:common temp.array_1

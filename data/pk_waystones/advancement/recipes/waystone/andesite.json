@@ -6,7 +6,12 @@
             "conditions": {
                 "items": [
                     {
-                        "items": ["minecraft:amethyst_shard", "minecraft:ender_eye", "minecraft:lodestone", "minecraft:polished_andesite"]
+                        "items": [
+                            "minecraft:amethyst_shard",
+                            "minecraft:ender_eye",
+                            "minecraft:lodestone",
+                            "minecraft:polished_andesite"
+                        ]
                     }
                 ]
             }
@@ -18,8 +23,15 @@
             }
         }
     },
-    "requirements": [["has_the_recipe", "has_an_ingredient"]],
+    "requirements": [
+        [
+            "has_the_recipe",
+            "has_an_ingredient"
+        ]
+    ],
     "rewards": {
-        "recipes": ["pk_waystones:waystone/andesite"]
+        "recipes": [
+            "pk_waystones:waystone/andesite"
+        ]
     }
 }

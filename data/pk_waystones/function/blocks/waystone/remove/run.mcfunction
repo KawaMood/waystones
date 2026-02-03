@@ -3,6 +3,9 @@
 # Set component id score
 scoreboard players operation $temp pk.custom_block.component.id = @s pk.custom_block.component.id
 
+# Public hook: waystone_remove_before
+function #pk_waystones:public/waystone_remove_before
+
 # Stop the tick environment process
 scoreboard players set $env.stop pk.temp 1
 
@@ -25,6 +28,9 @@ setblock ~ ~ ~ air
 
 # Remove components
 kill @e[type=#pk_waystones:custom_block/components,tag=pk.waystones.waystone.component,predicate=pk_waystones:scores/custom_block/component_id/match_temp,distance=..10]
+
+# Public hook: waystone_remove_after
+function #pk_waystones:public/waystone_remove_after
 
 # Debug logs
 execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{text: "Waystone at [", color: "gray"},{nbt:"temp.waystone.location.x",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.y",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.z",storage:"pk:common"},{text: "] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common"},{text: " has been removed"}]

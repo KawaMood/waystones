@@ -8,7 +8,9 @@
                         "condition": "minecraft:location_check",
                         "predicate": {
                             "block": {
-                                "blocks": ["minecraft:dropper"]
+                                "blocks": [
+                                    "minecraft:dropper"
+                                ]
                             }
                         }
                     }

@@ -6,6 +6,9 @@
 #   $hide_coordinates pk.temp: 0 if it can see coordinates, 1 if it can't
 #       @within function pk_waystones:blocks/waystone/use/gui/build/run
 
+# Public hook: gui_button_build_before
+function #pk_waystones:public/gui_button_build_before
+
 # Set id, components, Count and Slot
 data modify storage pk:common temp.gui.item set value {count:1}
 execute store result storage pk:common temp.gui.item.Slot byte 1 run scoreboard players get $slot pk.temp
@@ -41,12 +44,15 @@ execute if data storage pk:common temp.visible_waystone{visibility:"public"} run
 execute if score $pk.waystones.settings.xp_consumption.value pk.value matches 1.. run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/xp_consumption/try
 
 # Set owner in lore
-execute if data storage pk:common temp.visible_waystone.owner run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/owner
+execute if data storage pk:common temp.visible_waystone.owner run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/owner with storage pk:common temp.visible_waystone
 execute unless data storage pk:common temp.visible_waystone.owner run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Unclaimed",color:"gray",italic:false}
 
 # Set id in lore
 data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"id: ",color:"gray",italic:false},{nbt:"temp.visible_waystone.id",storage:"pk:common"}]
 data modify storage pk:common temp.gui.item.components."minecraft:lore" append from block ~ ~-1 ~ front_text.messages[0]
+
+# Public hook: gui_button_build_after
+function #pk_waystones:public/gui_button_build_after
 
 # Append to GUI items
 data modify storage pk:common temp.gui.items append from storage pk:common temp.gui.item
