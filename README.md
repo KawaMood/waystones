@@ -236,6 +236,31 @@ If needed, you can also be informed of the current default visibility using the 
 
 </details>
 <details>
+<summary>Default protection</summary>
+
+This setting lets you change the default protection of a waystone on placement.
+Initially, the default protection mode is "disabled". You can change it using the following command, where the `protection` value can be either "disabled" or "enabled".
+
+To enabled the protection by default:
+
+```
+/function pk_waystones:settings/default_protection/set {protection:"enabled"}
+```
+
+Or to disable it back:
+
+```
+/function pk_waystones:settings/default_protection/set {protection:"disabled"}
+```
+
+If needed, you can also be informed of the current default protection using the following command:
+
+```
+/pk_waystones:settings/default_protection/get
+```
+
+</details>
+<details>
 <summary>Limit Waystones Per Player/Server</summary>
 
 You can chose how many waystones **players** can own at most. This amount is relative to each player, meaning if you set it to 5, every players will be able to place 5 waystones each. It can be done using the following command, where "**count**" waits for the desired amount of waystones:
@@ -597,6 +622,55 @@ On server that use external tools like Paper, Spigot... some desynch can happen,
 ```
 /function pk_waystones:cmd/debug/force_waystones_to_unlock
 ```
+
+</details>
+
+## Features for other data packs
+
+<details> 
+<summary>Public hooks</summary>
+
+Public hooks are [function tags](<https://minecraft.wiki/w/Function_tag_(Java_Edition)>) which allow you to run your own functions before or after a specific event happen from the waystones data pack by adding them in the corresponding tag.
+
+They have been added to help people wanting to introduce their own features without altering the original code, so the waystones data pack can be safely updated without the need of editing it back to introduce your own features every time you install another version.
+
+Public hooks can be found in `data/pk_waystones/tags/function/public` and follow a `<event>_<after/before>` name pattern. They must be added following these same paths (including the `pk_waystone` namespace) and names within your data pack.
+
+### List of public hooks
+
+`gui_action_<after/before>`: triggers after/before an action is performed by clicking an item from a Waystones GUI.
+
+- Context: Current controller (waystone marker entity), at itself.
+- The user has the `pk.current.player` tag.
+
+`gui_button_build_<after/before>`: triggers after/before a button (item data) is built to populate the Waystones GUI.
+
+- Context: Current controller (waystone marker entity), at itself.
+- The user has the `pk.current.player` tag.
+
+`waystone_close_<after/before>`: triggers after/before a player closes a waystones GUI.
+
+- Context: Current controller (waystone marker entity), at itself.
+- The user has the `pk.current.player` tag.
+
+`waystone_open_<after/before>`: triggers after/before a player opens a waystones GUI.
+
+- Context: The user who oppened the waystone (also have the `pk.current.player` tag), at the waystone's location aligned xyz.
+- The marker of the opened waystone can be found using `@e[type=marker,tag=pk.waystones.waystone.controller,dx=0,limit=1]`.
+
+`waystone_place_<after/before>`: triggers after/before a waystone is placed.
+
+- Context: Any, at the waystone's location aligned xyz.
+- In the case the waystone is placed by a player, the context is this player.
+- In the "after" hook, the controlle of the placed waystone can be found using `@e[type=marker,tag=pk.waystones.waystone.controller,dx=0,limit=1]`.
+
+`waystone_remove_<after/before>`: triggers after/before a waystone is removed.
+
+- Context: Current controller (waystone marker entity), at itself.
+
+`waystone_replace_<after/before>`: triggers after/before a waystone is replaced (with the "recreating" feature).
+
+- Context: Any, at the waystone's location aligned xyz.
 
 </details>
 
