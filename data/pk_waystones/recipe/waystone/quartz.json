@@ -23,14 +23,14 @@
                 {
                     "color": "dark_gray",
                     "italic": false,
-                    "fallback": "Red Sand Waystone",
+                    "fallback": "Quartz Waystone",
                     "translate": "item.pk_waystones.quartz_waystone"
                 }
             ],
             "minecraft:item_name": {
                 "color": "yellow",
                 "italic": false,
-                "fallback": "Red Sand Waystone",
+                "fallback": "Quartz Waystone",
                 "translate": "item.pk_waystones.quartz_waystone"
             },
             "!minecraft:equippable": {},
@@ -47,7 +47,7 @@
                 "properties": [
                     {
                         "name": "textures",
-                        "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHBzOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2JmZTAwZjI1NDBhYjQyZmE1YTM4ZTE5ZDQ1ZDllM2NlZDQxNzQ2MmQyY2Q1NjFiMWU4NGYwYzVkN2NkOGUxODEifX19"
+                        "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHBzOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzY1ZDU3OGIwMjkxZGEyOTY2ZDg4MTFhODViMzQ0NTBkZjcwMGUxNDEwOTUwMDAxNWYyYzc3ZDdiODU4YTMwOGEifX19"
                     }
                 ]
             }
