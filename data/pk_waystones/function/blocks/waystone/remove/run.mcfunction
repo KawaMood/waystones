@@ -33,4 +33,4 @@ kill @e[type=#pk_waystones:custom_block/components,tag=pk.waystones.waystone.com
 function #pk_waystones:public/waystone_remove_after
 
 # Debug logs
-execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{text: "Waystone at [", color: "gray"},{nbt:"temp.waystone.location.x",storage:"pk:common",interpret:true},{text: ","},{nbt:"temp.waystone.location.y",storage:"pk:common",interpret:true},{text: ","},{nbt:"temp.waystone.location.z",storage:"pk:common",interpret:true},{text: "] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common",interpret:true},{text: " has been removed"}]
+execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{text:"Waystone at [", color:"gray"},{nbt:"temp.waystone.location.x",storage:"pk:common",interpret:true},{text:","},{nbt:"temp.waystone.location.y",storage:"pk:common",interpret:true},{text:","},{nbt:"temp.waystone.location.z",storage:"pk:common",interpret:true},{text:"] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common",interpret:true},{text:" has been removed"}]

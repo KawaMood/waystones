@@ -29,4 +29,4 @@ stopsound @a[distance=..30] block block.barrel.close
 function #pk_waystones:public/waystone_close_after
 
 # Debug logs
-execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " closed waystone at ["},{nbt:"x","block":"~ ~ ~"},{text: ","},{nbt:"y","block":"~ ~ ~"},{text: ","},{nbt:"z","block":"~ ~ ~"},{text: "]"}]
+execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color:"gray"},{text:" closed waystone at ["},{nbt:"x","block":"~ ~ ~"},{text:","},{nbt:"y","block":"~ ~ ~"},{text:","},{nbt:"z","block":"~ ~ ~"},{text:"]"}]
