@@ -35,4 +35,4 @@ playsound block.beacon.ambient ambient @a[distance=..30] ~ ~ ~ 1 1.75
 function #pk_waystones:public/waystone_place_after
 
 # Debug logs
-execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " placed Waystone at ["},{nbt:"temp.waystone.location.x",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.y",storage:"pk:common"},{text: ","},{nbt:"temp.waystone.location.z",storage:"pk:common"},{text: "] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common"}]
+execute if score $logs.datapack.waystones pk.value matches 1 run tellraw @a[tag=pk.dev] [{"selector":"@a[tag=pk.current.player,limit=1]",color: "gray"},{text: " placed Waystone at ["},{nbt:"temp.waystone.location.x",storage:"pk:common",interpret:true},{text: ","},{nbt:"temp.waystone.location.y",storage:"pk:common",interpret:true},{text: ","},{nbt:"temp.waystone.location.z",storage:"pk:common",interpret:true},{text: "] in "},{nbt:"temp.waystone.location.dimension",storage:"pk:common",interpret:true}]

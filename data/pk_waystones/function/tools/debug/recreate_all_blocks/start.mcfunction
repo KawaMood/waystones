@@ -23,7 +23,7 @@ $data modify storage pk:common debug.recreate.fallback set value "$(fallback)"
 scoreboard players set $debugging pk.value 1
 
 # Logs
-tellraw @s [{text: "Starting to recreate all \"",color: "gray"},{nbt:"debug.recreate.block_id",storage:"pk:common"},{text: "\" blocks ..."}]
+tellraw @s [{text: "Starting to recreate all \"",color: "gray"},{nbt:"debug.recreate.block_id",storage:"pk:common",interpret:true},{text: "\" blocks ..."}]
 
 # Mark debugger
 tag @s add pk.debug.recreate

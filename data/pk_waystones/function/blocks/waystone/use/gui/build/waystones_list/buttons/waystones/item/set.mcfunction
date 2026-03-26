@@ -32,7 +32,7 @@ data modify storage pk:common temp.gui.item.components."minecraft:bundle_content
 
 # Set location in lore
 data modify storage pk:common temp.gui.item.components."minecraft:lore" set value []
-data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"At [",color:"gray",italic:false},{nbt:"temp.visible_waystone.location.x",storage:"pk:common"},{text:", "},{nbt:"temp.visible_waystone.location.y",storage:"pk:common"},{text:", "},{nbt:"temp.visible_waystone.location.z",storage:"pk:common"},{text:"] in "},{nbt:"temp.visible_waystone.location.dimension",storage:"pk:common"}]
+data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"At [",color:"gray",italic:false},{nbt:"temp.visible_waystone.location.x",storage:"pk:common",plain:true},{text:", "},{nbt:"temp.visible_waystone.location.y",storage:"pk:common",plain:true},{text:", "},{nbt:"temp.visible_waystone.location.z",storage:"pk:common",plain:true},{text:"] in "},{nbt:"temp.visible_waystone.location.dimension",storage:"pk:common",interpret:true}]
 execute if score $hide_coordinates pk.temp matches 0 run data modify storage pk:common temp.gui.item.components."minecraft:lore" append from block ~ ~-1 ~ front_text.messages[0]
 
 # Set visibility in lore
@@ -48,7 +48,7 @@ execute if data storage pk:common temp.visible_waystone.owner run function pk_wa
 execute unless data storage pk:common temp.visible_waystone.owner run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Unclaimed",color:"gray",italic:false}
 
 # Set id in lore
-data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"id: ",color:"gray",italic:false},{nbt:"temp.visible_waystone.id",storage:"pk:common"}]
+data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"id: ",color:"gray",italic:false},{nbt:"temp.visible_waystone.id",storage:"pk:common",plain:true}]
 data modify storage pk:common temp.gui.item.components."minecraft:lore" append from block ~ ~-1 ~ front_text.messages[0]
 
 # Public hook: gui_button_build_after
