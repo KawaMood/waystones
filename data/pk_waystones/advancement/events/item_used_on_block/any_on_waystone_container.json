@@ -17,6 +17,6 @@
     }
   },
   "rewards": {
-    "function": "pk_waystones:events/player/item_used_on_block/any_on_waystone_container"
+    "function": "pk_waystones:events/player/item_used_on_block/any_on_waystone_container/start"
   }
 }

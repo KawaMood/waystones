@@ -36,8 +36,9 @@ data modify block ~ ~-1 ~ front_text.messages[0] set value [{text:"At [",color:"
 execute if score $hide_coordinates pk.temp matches 0 run data modify storage pk:common temp.gui.item.components."minecraft:lore" append from block ~ ~-1 ~ front_text.messages[0]
 
 # Set visibility in lore
+execute if data storage pk:common temp.visible_waystone{visibility:"discover_private"} run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Discover (private) Waystone",color:"red",italic:false} 
 execute if data storage pk:common temp.visible_waystone{visibility:"private"} run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Private Waystone",color:"red",italic:false} 
-execute if data storage pk:common temp.visible_waystone{visibility:"discover"} run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Discovered Waystone",color:"yellow",italic:false} 
+execute if data storage pk:common temp.visible_waystone{visibility:"discover"} run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Discovered (public) Waystone",color:"yellow",italic:false} 
 execute if data storage pk:common temp.visible_waystone{visibility:"public"} run data modify storage pk:common temp.gui.item.components."minecraft:lore" append value {text:"Public Waystone",color:"green",italic:false} 
 
 # Set required level if the "consumption_level" setting is enabled

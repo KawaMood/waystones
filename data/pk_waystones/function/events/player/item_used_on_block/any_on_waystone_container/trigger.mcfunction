@@ -1,8 +1,3 @@
-#> pk_waystones:events/player/item_used_on_block/any_on_waystone_container
-# @within advancement pk_waystones:events/item_used_on_block/any_on_waystone_container
-
-advancement revoke @s only pk_waystones:events/item_used_on_block/any_on_waystone_container
-
 # Increment and set interaction.id score
 scoreboard players add $next pk.custom_block.interaction.id 1
 scoreboard players operation @s pk.custom_block.interaction.id = $next pk.custom_block.interaction.id

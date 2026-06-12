@@ -14,22 +14,21 @@ execute if entity @s[tag=pk.waystones.manager] run return 1
 
 # Keep only waystones from the same dimension if the permission "tp.in_other_dimensions" is disabled
 execute if score $pk.waystones.permissions.tp.in_other_dimensions pk.value matches 0 run function pk_waystones:blocks/waystone/use/data/visible_waystones/filters/same_dimension
-execute if score $pk.waystones.permissions.tp.in_other_dimensions pk.value matches 0 run data modify storage pk:common temp.visible_waystones set from storage pk:common temp.filter.output
 
 # Create another temp array
 data modify storage pk:common temp.array_1 set value []
 
-# Visibility private and the user is the owner
-function pk_waystones:blocks/waystone/use/data/visible_waystones/filters/private_owner
-data modify storage pk:common temp.array_1 append from storage pk:common temp.filter.output[]
+# Store UUID of current user
+data modify storage pk:common temp.waystone_user.uuid set from entity @s UUID
 
-# Visibility private and shared with the user
-function pk_waystones:blocks/waystone/use/data/visible_waystones/filters/private_shared_with
-data modify storage pk:common temp.array_1 append from storage pk:common temp.filter.output[]
+# Visibility private
+function pk_waystones:blocks/waystone/use/data/visible_waystones/filters/private
 
-# Visibility discover and discovered by user
+# Visibility discover private
+function pk_waystones:blocks/waystone/use/data/visible_waystones/filters/discovered_private
+
+# Visibility discover
 function pk_waystones:blocks/waystone/use/data/visible_waystones/filters/discovered
-data modify storage pk:common temp.array_1 append from storage pk:common temp.filter.output[]
 
 # Visibility public
 execute if score $pk.waystones.settings.list_public_waystones_first pk.value matches 1.. run data modify storage pk:common temp.array_1 prepend from storage pk:common temp.visible_waystones[{visibility:"public"}]

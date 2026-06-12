@@ -55,6 +55,12 @@ scoreboard objectives add pk.waystones.player_setting.hide_coordinates dummy
 #   Used to allow the players to forget discovered/private waystones
 scoreboard objectives add pk.waystones.trigger.forget_waystone trigger
 
+# Get server info
+function pk_waystones:packages/get_server_info/run
+
+# Default settings
+execute if score $packages.get_server_info.paper pk.temp matches 1 unless data storage pk:waystones settings.open_container_delay run data modify storage pk:waystones settings.open_container_delay set value 2
+
 # Consts
 scoreboard players set $-1 pk.value -1
 scoreboard players set $18 pk.value 18

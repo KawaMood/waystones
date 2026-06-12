@@ -6,9 +6,12 @@ execute if score $next_visibility pk.temp matches 0 run data modify storage pk:c
 # If Public
 execute if score $next_visibility pk.temp matches 1 run data modify storage pk:common temp.gui.item.components."minecraft:lore" set value [{text:"Click to change to \"Public\"",color:"gray",italic:false}]
 execute if score $next_visibility pk.temp matches 1 run data modify storage pk:common temp.gui.item.components."minecraft:custom_data".pk_data.trigger_params.visibility set value "public"
-# If Private
-execute if score $next_visibility pk.temp matches 2 run data modify storage pk:common temp.gui.item.components."minecraft:lore" set value [{text:"Click to change to \"Private\"",color:"gray",italic:false}]
-execute if score $next_visibility pk.temp matches 2 run data modify storage pk:common temp.gui.item.components."minecraft:custom_data".pk_data.trigger_params.visibility set value "private"
 # If Discover
-execute if score $next_visibility pk.temp matches 3 run data modify storage pk:common temp.gui.item.components."minecraft:lore" set value [{text:"Click to change to \"Discover\"",color:"gray",italic:false}]
-execute if score $next_visibility pk.temp matches 3 run data modify storage pk:common temp.gui.item.components."minecraft:custom_data".pk_data.trigger_params.visibility set value "discover"
+execute if score $next_visibility pk.temp matches 2 run data modify storage pk:common temp.gui.item.components."minecraft:lore" set value [{text:"Click to change to \"Discover (public)\"",color:"gray",italic:false}]
+execute if score $next_visibility pk.temp matches 2 run data modify storage pk:common temp.gui.item.components."minecraft:custom_data".pk_data.trigger_params.visibility set value "discover"
+# If Private
+execute if score $next_visibility pk.temp matches 3 run data modify storage pk:common temp.gui.item.components."minecraft:lore" set value [{text:"Click to change to \"Private\"",color:"gray",italic:false}]
+execute if score $next_visibility pk.temp matches 3 run data modify storage pk:common temp.gui.item.components."minecraft:custom_data".pk_data.trigger_params.visibility set value "private"
+# If Discover private
+execute if score $next_visibility pk.temp matches 4 run data modify storage pk:common temp.gui.item.components."minecraft:lore" set value [{text:"Click to change to \"Discover (private)\"",color:"gray",italic:false}]
+execute if score $next_visibility pk.temp matches 4 run data modify storage pk:common temp.gui.item.components."minecraft:custom_data".pk_data.trigger_params.visibility set value "discover_private"

@@ -12,7 +12,7 @@ execute align xyz positioned ~0.4995 ~-0.0005 ~0.4995 summon interaction run fun
 # Store the currently used waystone data and prepare the page score
 function pk_waystones:blocks/waystone/use/data/used_waystone/get
 
-# Public hook: waystone_opened
+# Public hook: waystone_open_before
 function #pk_waystones:public/waystone_open_before
 
 # Assign the user as owner if the used waystone is unclaimed
@@ -33,7 +33,7 @@ function pk_waystones:blocks/waystone/use/gui/build/run
 stopsound @a[distance=..30] block block.barrel.open
 playsound block.grindstone.use block @a[distance=..30] ~ ~ ~ 0.5 1.1
 
-# Public hook: waystone_opened
+# Public hook: waystone_open_after
 function #pk_waystones:public/waystone_open_after
 
 # Debug logs

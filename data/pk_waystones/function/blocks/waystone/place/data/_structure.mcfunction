@@ -20,5 +20,5 @@
 # visibility (string): "public", "private" or "discover"
 # render_item (entry):
 #   id (string): id of item to render the Waystone in the Waystones list
-#   tag (entry): optional tags of item
+#   components (entry): optional components of item
 # created_at_gametime (integer): the gametime the waystone has been placed on

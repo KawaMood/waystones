@@ -20,6 +20,9 @@ data modify storage pk:common temp.array_1 set value []
 data modify storage pk:common temp.array_1 append from storage pk:common temp.gui.accepted_item.components."minecraft:writable_book_content".pages[].raw
 execute if data storage pk:common temp.array_1[-1] run function pk_waystones:blocks/waystone/use/gui/triggers/shared_with/put/pages_filter_recursive
 
+# TO_REMOVE
+tellraw @a {nbt:"temp.used_waystone.id",storage:"pk:common",source:"storage"}
+
 # Update data
 data modify storage pk:common temp.used_waystone.shared_with set from storage pk:common temp.new.shared_with
 function pk_waystones:blocks/waystone/use/data/used_waystone/update

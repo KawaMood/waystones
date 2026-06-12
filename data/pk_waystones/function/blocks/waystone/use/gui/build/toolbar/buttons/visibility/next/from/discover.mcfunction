@@ -1,0 +1,3 @@
+execute if data storage pk:common temp.allowed_visibility[{visibility:"private"}] run return run scoreboard players set $next_visibility pk.temp 3
+execute if data storage pk:common temp.allowed_visibility[{visibility:"discover_private"}] run return run scoreboard players set $next_visibility pk.temp 4
+execute if data storage pk:common temp.allowed_visibility[{visibility:"public"}] run scoreboard players set $next_visibility pk.temp 1

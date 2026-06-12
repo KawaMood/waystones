@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": ["minecraft:ender_dragon", "minecraft:wither"]
+  "values": [
+    "minecraft:ender_dragon",
+    "minecraft:wither"
+  ]
 }

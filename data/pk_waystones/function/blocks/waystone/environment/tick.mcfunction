@@ -7,7 +7,7 @@
 scoreboard players set $env.stop pk.temp 0
 
 # Check if a block of the Waystone has been destroyed
-execute unless predicate pk_waystones:block_sets/waystone/is_complete run function pk_waystones:blocks/waystone/remove/try/start
+execute unless predicate pk_waystones:block_sets/waystone/is_complete if loaded ~ ~ ~ run function pk_waystones:blocks/waystone/remove/try/start
 execute if score $env.stop pk.temp matches 1 run return 1
 
 # Remove hopper minecarts being at range to draw items from the container block
