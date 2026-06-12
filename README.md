@@ -34,7 +34,7 @@ Base blocks to use depend on the desired variant of waystone to get:
 - **Red Sandstone** for Red Sand Waystone
 - **Quartz Block** for Quartz Waystone
 
-![waystone recipes](https://cdn.modrinth.com/data/cached_images/b4c50ca9b270a5af87633d3faab072183732601c.gif)
+![Waystones recipes](https://cdn.modrinth.com/data/cached_images/c39228a4b7442b35dfce064f78c56fc180500d28.gif)
 
 Before placing your waystone, it is recommended to rename it within an **Anvil**. This will allow you to retrieve your points correspondance more easily within the waystones list.
 Waystones icons in the list depends on the block they have been placed on, so you can also chose identifiable ones. These icons also handle NBT (meaning you can place a waystone on a custom player head to have custom icons).
@@ -366,6 +366,32 @@ You can **enable**, **disable** or **get** the current state of this setting usi
 
 </details>
 <details>
+<summary>Open Container Delay (compatibility for Paper)</summary>
+
+This setting allows you to adjust the minimal delay before a waystone trigger its "open" event when opened. This has been introduced to bypass [issue #13839](https://github.com/PaperMC/Paper/issues/13839) on Paper since its 26.1.2 build #17 version.
+
+By default, a value of `2` ticks is set if it detects a Paper server.
+
+You can **set** a delay (in ticks) with the following command:
+
+```
+/function pk_waystones:settings/open_container_delay/set {value:<value>}
+```
+
+_Example - Set a delay of 2 ticks:_
+
+```
+/function pk_waystones:settings/open_container_delay/set {value:2}
+```
+
+Or **get** the current delay using the following command:
+
+```
+/function pk_waystones:settings/open_container_delay/get
+```
+
+</details>
+<details>
 <summary>Permission: Change "Visibility" Attribute</summary>
 
 These permissions allows you to restrict players from using specific visibility values. Note that managers are immune to this effect and will always be able to change any attributes from any waystone. By default, players are allowed to set any visibility to their waystone.
@@ -636,39 +662,60 @@ They have been added to help people wanting to introduce their own features with
 
 Public hooks can be found in `data/pk_waystones/tags/function/public` and follow a `<event>_<after/before>` name pattern. They must be added following these same paths (including the `pk_waystone` namespace) and names within your data pack.
 
-### List of public hooks
+Here are listed public hooks:
 
-`gui_action_<after/before>`: triggers after/before an action is performed by clicking an item from a Waystones GUI.
+---
 
-- Context: Current controller (waystone marker entity), at itself.
-- The user has the `pk.current.player` tag.
-
-`gui_button_build_<after/before>`: triggers after/before a button (item data) is built to populate the Waystones GUI.
+**gui*action*<after/before>**:  
+Triggers after/before an action is performed by clicking an item from a Waystones GUI.
 
 - Context: Current controller (waystone marker entity), at itself.
 - The user has the `pk.current.player` tag.
 
-`waystone_close_<after/before>`: triggers after/before a player closes a waystones GUI.
+---
+
+**gui*button_build*<after/before>**:  
+Triggers after/before a button (item data) is built to populate the Waystones GUI.
 
 - Context: Current controller (waystone marker entity), at itself.
 - The user has the `pk.current.player` tag.
 
-`waystone_open_<after/before>`: triggers after/before a player opens a waystones GUI.
+---
+
+**waystone*close*<after/before>**:  
+Triggers after/before a player closes a waystones GUI.
+
+- Context: Current controller (waystone marker entity), at itself.
+- The user has the `pk.current.player` tag.
+
+---
+
+**waystone*open*<after/before>**:  
+Triggers after/before a player opens a waystones GUI.
 
 - Context: The user who oppened the waystone (also have the `pk.current.player` tag), at the waystone's location aligned xyz.
 - The marker of the opened waystone can be found using `@e[type=marker,tag=pk.waystones.waystone.controller,dx=0,limit=1]`.
 
-`waystone_place_<after/before>`: triggers after/before a waystone is placed.
+---
+
+**waystone*place*<after/before>**:  
+Triggers after/before a waystone is placed.
 
 - Context: Any, at the waystone's location aligned xyz.
 - In the case the waystone is placed by a player, the context is this player.
 - In the "after" hook, the controlle of the placed waystone can be found using `@e[type=marker,tag=pk.waystones.waystone.controller,dx=0,limit=1]`.
 
-`waystone_remove_<after/before>`: triggers after/before a waystone is removed.
+---
+
+**waystone*remove*<after/before>**:  
+Triggers after/before a waystone is removed.
 
 - Context: Current controller (waystone marker entity), at itself.
 
-`waystone_replace_<after/before>`: triggers after/before a waystone is replaced (with the "recreating" feature).
+---
+
+**waystone*replace*<after/before>**:  
+Triggers after/before a waystone is replaced (with the "recreating" feature).
 
 - Context: Any, at the waystone's location aligned xyz.
 
