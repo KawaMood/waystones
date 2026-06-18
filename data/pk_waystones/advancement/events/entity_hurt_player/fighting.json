@@ -5,7 +5,7 @@
       "conditions": {
         "damage": {
           "source_entity": {
-            "type": "#pk_waystones:fighting"
+            "minecraft:entity_type": "#pk_waystones:fighting"
           }
         }
       }
