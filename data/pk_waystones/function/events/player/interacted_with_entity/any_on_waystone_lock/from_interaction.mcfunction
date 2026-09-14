@@ -1,4 +1,4 @@
-#> pk_waystones:events/player/item_used_on_block/any_on_waystone_lock/from_interaction
+#> pk_waystones:events/player/interacted_with_entity/any_on_waystone_lock/from_interaction
 
 data remove entity @s interaction
 

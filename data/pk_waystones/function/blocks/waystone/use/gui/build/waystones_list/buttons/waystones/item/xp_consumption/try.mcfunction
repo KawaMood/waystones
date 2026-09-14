@@ -13,7 +13,7 @@ scoreboard players set $ignore pk.temp 0
 execute if data storage pk:common temp.visible_waystone.ignore.settings{xp_consumption:1b} run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/xp_consumption/ignore
 execute if score $ignore pk.temp matches 1 run return 0
 
-# If the setting mode is "manhattan" or "euclidian"
+# If the setting mode is "manhattan" or "euclidean"
 execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 0..1 run function pk_waystones:blocks/waystone/use/gui/build/waystones_list/buttons/waystones/item/xp_consumption/distance_mode
 # If it is "fixed"
 execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 2 run scoreboard players operation $xp_consumption.levels pk.temp = $pk.waystones.settings.xp_consumption.value pk.value

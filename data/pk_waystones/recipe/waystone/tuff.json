@@ -12,8 +12,21 @@
     "P": "minecraft:tuff"
   },
   "result": {
-    "id": "minecraft:player_head",
+    "id": "minecraft:glow_item_frame",
     "components": {
+      "minecraft:entity_data": {
+        "id": "minecraft:glow_item_frame",
+        "Invisible": true,
+        "Tags": [
+          "pk.waystones",
+          "pk.waystones.block_placer"
+        ],
+        "data": {
+          "id": "waystone",
+          "variant": "tuff"
+        }
+      },
+      "minecraft:item_model": "minecraft:player_head",
       "minecraft:custom_model_data": {
         "strings": [
           "pk_waystones:tuff_waystone"
@@ -40,7 +53,7 @@
           "id": "waystone",
           "from": "waystones",
           "variant": "tuff",
-          "version": 30405
+          "version": 30600
         }
       },
       "minecraft:profile": {

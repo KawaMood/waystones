@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "pk_waystones:waystone/prismarine"
+        "recipes": "pk_waystones:waystone/prismarine"
       }
     }
   },

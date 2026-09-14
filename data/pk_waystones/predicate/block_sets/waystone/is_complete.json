@@ -1,19 +1,26 @@
-[
-  {
-    "condition": "minecraft:location_check",
-    "offsetY": -1,
-    "predicate": {
-      "block": {
-        "blocks": ["minecraft:barrier"]
+{
+  "type": "all_of",
+  "terms": [
+    {
+      "type": "minecraft:location_check",
+      "offsetY": -1,
+      "predicate": {
+        "block": {
+          "blocks": [
+            "minecraft:barrier"
+          ]
+        }
+      }
+    },
+    {
+      "type": "minecraft:location_check",
+      "predicate": {
+        "block": {
+          "blocks": [
+            "minecraft:barrel"
+          ]
+        }
       }
     }
-  },
-  {
-    "condition": "minecraft:location_check",
-    "predicate": {
-      "block": {
-        "blocks": ["minecraft:barrel"]
-      }
-    }
-  }
-]
+  ]
+}

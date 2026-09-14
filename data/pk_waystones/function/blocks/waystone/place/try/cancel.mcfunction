@@ -13,7 +13,7 @@ $title @s actionbar {text:"$(reason)", color:"red"}
 data modify storage pk:common temp.args.id set from storage pk:common temp.item.id
 data modify storage pk:common temp.args.components set from storage pk:common temp.item.components
 data modify storage pk:common temp.args.count set value 1
-function pk_waystones:packages/dynamic_item/give with storage pk:common temp.args
+execute unless entity @s[gamemode=creative] run function pk_waystones:packages/dynamic_item/give with storage pk:common temp.args
 
 # Set the current block as air
 setblock ~ ~ ~ air

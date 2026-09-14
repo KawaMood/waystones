@@ -1,7 +1,7 @@
 #> pk_waystones:settings/xp_consumption/get
 
 # Get used distance mode
-execute unless score $pk.waystones.settings.xp_consumption.mode pk.value matches 1.. run data modify storage pk:common temp.mode set value "euclidian"
+execute unless score $pk.waystones.settings.xp_consumption.mode pk.value matches 1.. run data modify storage pk:common temp.mode set value "euclidean"
 execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 1 run data modify storage pk:common temp.mode set value "manhattan"
 execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 2 run data modify storage pk:common temp.mode set value "fixed"
 
@@ -9,7 +9,7 @@ execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 2 r
 execute store result storage pk:common temp.value int 1 run scoreboard players get $pk.waystones.settings.xp_consumption.value pk.value
 
 # Logs
-#   Mode manatthan or euclidian
+#   Mode manatthan or euclidean
 execute if score $pk.waystones.settings.xp_consumption.value pk.value matches 1.. if score $pk.waystones.settings.xp_consumption.mode pk.value matches 0..1 run tellraw @s [{text:"Teleporting currently requires 1 level per ",color:"gray"},{nbt:"temp.value",storage:"pk:common",interpret:true,color:"yellow"},{text:" blocks, distance between two waystones being calculated with the \"",color:"gray"},{nbt:"temp.mode",storage:"pk:common",interpret:true,color:"yellow"},{text:"\" method",color:"gray"}]
 #    Mode fixed
 execute if score $pk.waystones.settings.xp_consumption.value pk.value matches 1.. if score $pk.waystones.settings.xp_consumption.mode pk.value matches 2 run tellraw @s [{text:"Teleporting currently requires",color:"gray"},{nbt:"temp.value",storage:"pk:common",interpret:true,color:"yellow"},{text:" level(s) no matter the distance that separates both waystones",color:"gray"}]

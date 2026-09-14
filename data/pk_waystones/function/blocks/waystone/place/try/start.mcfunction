@@ -1,12 +1,12 @@
 #> pk_waystones:blocks/waystone/place/try/start
 # Player try to place a waystone
-# @context as the player that placed a waystone (tag=pk.current.player) at the found block
+# @context as the player that placed a waystone (tag=pk.current.player) at the found block placer
+# @data
+#   storage pk:common temp.block_placer_entity : data of the block placer entity
 
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
 # Prepare scores and data
 # ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― 
-# Store placed block data
-data modify storage pk:common temp.block set from block ~ ~ ~
 
 # Total amount of Waystones owned by the current player
 scoreboard players set $waystones_of_player pk.temp 0

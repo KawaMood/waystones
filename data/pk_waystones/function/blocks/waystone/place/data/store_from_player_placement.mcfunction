@@ -5,7 +5,7 @@ data modify storage pk:common temp.waystone set value {visibility:"discover",dis
 # Id
 execute store result storage pk:common temp.waystone.id int 1 run scoreboard players get $temp pk.custom_block.component.id
 # Variant
-data modify storage pk:common temp.waystone.variant set from storage pk:common temp.block.components."minecraft:custom_data".pk_data.variant
+data modify storage pk:common temp.waystone.variant set from storage pk:common temp.block_placer_entity.data.variant
 # Name
 data modify storage pk:common temp.waystone.name set value {text:"Waystone"}
 data modify storage pk:common temp.waystone.name set from storage pk:common temp.item.components."minecraft:custom_name"
@@ -18,9 +18,10 @@ execute if score $pk.waystones.settings.default_visibility pk.value matches 2 ru
 data modify storage pk:common temp.waystone.owner set from entity @s UUID
 # Location
 data modify storage pk:common temp.waystone.location.dimension set from entity @s Dimension
-data modify storage pk:common temp.waystone.location.x set from storage pk:common temp.block.x
-data modify storage pk:common temp.waystone.location.y set from storage pk:common temp.block.y
-data modify storage pk:common temp.waystone.location.z set from storage pk:common temp.block.z
+execute store result storage pk:common temp.waystone.location.x int 1 run data get storage pk:common temp.block_placer_entity.Pos[0]
+execute store result storage pk:common temp.waystone.location.y int 1 run data get storage pk:common temp.block_placer_entity.Pos[1]
+execute store result storage pk:common temp.waystone.location.z int 1 run data get storage pk:common temp.block_placer_entity.Pos[2]
+
 # Facing
 execute if entity @s[y_rotation=-135..-45] run data modify storage pk:common temp.waystone.facing set value "west"
 execute if entity @s[y_rotation=-44.999999..44.999999] run data modify storage pk:common temp.waystone.facing set value "north"

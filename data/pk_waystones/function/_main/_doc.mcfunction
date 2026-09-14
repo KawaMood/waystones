@@ -20,7 +20,7 @@
 #   $pk.waystones.settings.show_same_dimension_only pk.value | default: (undefined) | >=1 show only Waystones of same the dimension in a Waystone's menu
 #   $pk.waystones.settings.default_visibility       pk.value | default: (undefined) | (undefined) or 0 : discover | 1 : private | 2 : public
 #   $pk.waystones.settings.xp_consumption.value    pk.value | default: (undefined) | (undefined) or <=0 = disable | >=1 = blocks distance for consumption of a level / levels
-#   $pk.waystones.settings.xp_consumption.mode      pk.value | default: (undefined) | distance calculation method between two waystones | 0: "euclidian" | 1: "manhattan"
+#   $pk.waystones.settings.xp_consumption.mode      pk.value | default: (undefined) | distance calculation method between two waystones | 0: "euclidean" | 1: "manhattan"
 #   $pk.waystones.settings.hide_coordinates         pk.value | default: (undefined) | (undefined) or 0 : show | 1 : hide coordinates for all players
 #   $pk.waystones.settings.gui.extra_clear_delay    pk.value | default: 2 | delay before running an extra command that clears all players waystones gui items
 #   $pk.waystones.settings.lootable_delay           pk.value | default: (undefined) | >=1 minimal age of existence for the waystone to loot when removed

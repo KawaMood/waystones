@@ -10,7 +10,7 @@ data modify storage pk:common temp.args.pos2 set value []
 data modify storage pk:common temp.args.pos2 append from storage pk:common temp.visible_waystone.location.x
 data modify storage pk:common temp.args.pos2 append from storage pk:common temp.visible_waystone.location.y
 data modify storage pk:common temp.args.pos2 append from storage pk:common temp.visible_waystone.location.z
-execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 0 run data modify storage pk:common temp.args.mode set value "euclidian"
+execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 0 run data modify storage pk:common temp.args.mode set value "euclidean"
 execute if score $pk.waystones.settings.xp_consumption.mode pk.value matches 1 run data modify storage pk:common temp.args.mode set value "manhattan"
 #   Get distance
 #   @writes $distance pk.temp

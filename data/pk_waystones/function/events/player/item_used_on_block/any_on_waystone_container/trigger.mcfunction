@@ -5,10 +5,8 @@ scoreboard players operation @s pk.custom_block.interaction.id = $next pk.custom
 # Mark the current player
 tag @s add pk.current.player
 
-# Search the placed block
-# @callback function pk_waystones:blocks/waystone/use/start
-data modify storage pk:common temp.args set value {distance:10,block:"minecraft:barrel[open=true]",nbt:{Items:[{components:{"minecraft:custom_data":{pk_data:{custom_block:1b,from:"waystones",gui:1b,in_use:0b,id:"waystone"}}}}]},callback:"function pk_waystones:blocks/waystone/use/start",stop_at_first:true}
-function pk_waystones:packages/search_block/start with storage pk:common temp.args
+# Search the interacted block
+execute at @e[type=marker,tag=pk.waystones.waystone.controller,distance=..20] align xyz if block ~ ~ ~ minecraft:barrel[open=true] if items block ~ ~ ~ container.* *[custom_data~{pk_data:{custom_block:1b,from:"waystones",gui:1b,in_use:0b,id:"waystone"}}] run function pk_waystones:blocks/waystone/use/start
 
 # Unmark the current player
 tag @s remove pk.current.player

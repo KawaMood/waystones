@@ -5,14 +5,14 @@
 Craft and place Waystones on your points of interest.  
 A survival-friendly and multiplayer-friendly way to quickly travel in your world!
 
-# 🪄Introduction
+ 🪄Introduction
 
-## What is Waystones?
+# What is Waystones?
 
 KawaMood's Waystones is a data pack inspired by [BlayTheNinth's famous Waystones mod](https://www.curseforge.com/minecraft/mc-mods/waystones).
 Waystones allow you to travel quickly from one point to another in your world, and within any dimension (including custom ones). Unlike the mod, waystones do not appear naturally within the world, they require to be crafted.
 
-## How to craft and use a waystone?
+## How to craft and use waystone?
 
 Waystones can be crafted using:
 
@@ -113,12 +113,12 @@ If enabled, players will need to consume levels to travel from waystone to wayst
 
 This command use two parameters:
 
-- **mode** waits for either "fixed", "manhattan" or "euclidian". Both last are method used to calculate the distance between waystones.
+- **mode** waits for either "fixed", "manhattan" or "euclidean". Both last are method used to calculate the distance between waystones.
   - ["manhattan"](https://en.wikipedia.org/wiki/Taxicab_geometry) relies on the game's grid, meaning if a waystone is located at 0, 64, 0 and the other at 1000, 64, 1000, the setting will consider both waystone are separated by 2000 blocks.
-  - ["euclidian"](https://en.wikipedia.org/wiki/Euclidean_distance) refers to the distance in flight. Meaning if we took this same example above, the process will draw a vector between both waystones and calculate its length. The distance will then be around 1414 blocks.
+  - ["euclidean"](https://en.wikipedia.org/wiki/Euclidean_distance) refers to the distance in flight. Meaning if we took this same example above, the process will draw a vector between both waystones and calculate its length. The distance will then be around 1414 blocks.
 - **value** depends on the mode.
   - With the "fixed" mode, it waits for the amount of level the player would consume to teleport from a waystone to any other ones.
-  - With "euclidian" or "manhattan" mode, it waits as value the count of blocks you want the player to consume a level for in order to teleport. Meaning for example, if two waystones are separated by 5000 blocks, and I set a value of 1000, it will require 5 levels to teleport to it.
+  - With "euclidean" or "manhattan" mode, it waits as value the count of blocks you want the player to consume a level for in order to teleport. Meaning for example, if two waystones are separated by 5000 blocks, and I set a value of 1000, it will require 5 levels to teleport to it.
   - In any case, if this value is set to 0 or a negative value, it will disable the setting.
 
 _Example - Make teleportation require 5 levels no matter the targeted waystone:_
@@ -127,16 +127,16 @@ _Example - Make teleportation require 5 levels no matter the targeted waystone:_
 /function pk_waystones:settings/xp_consumption/set {mode:"fixed", value:5}
 ```
 
-_Example - Consume 1 level for 1000 blocks, with the euclidian calculation method:_
+_Example - Consume 1 level for 1000 blocks, with the euclidean calculation method:_
 
 ```
-/function pk_waystones:settings/xp_consumption/set {mode:"euclidian", value:1000}
+/function pk_waystones:settings/xp_consumption/set {mode:"euclidean", value:1000}
 ```
 
 _Example - Disable the setting completely:_
 
 ```
-/function pk_waystones:settings/xp_consumption/set {mode:"euclidian", value:0}
+/function pk_waystones:settings/xp_consumption/set {mode:"euclidean", value:0}
 ```
 
 If needed, you can also be informed of the current mode and value using the following command:
@@ -325,7 +325,7 @@ If enabled, public waystones will be listed first in waystones GUI. By default, 
 
 </details>
 <details>
-<summary>Lootable Delay (for Worldguard and WG-like plugins compatiblity)</summary>
+<summary>Lootable Delay (Worldguard plugins compatiblity)</summary>
 
 This setting allows you to adjust the minimal delay before a waystone can drop itself when broken. It is useful if you use a plugin that provides an area protection system.
 
@@ -351,7 +351,7 @@ Or **get** the current delay using the following command:
 
 </details>
 <details>
-<summary>Tick GUI items clear (security for non-vanilla servers)</summary>
+<summary>Tick GUI items clear (modded servers safeguard)</summary>
 
 External versions such as Paper sometimes involve weird behavior with containers.
 In order to avoid potential items dupe issues with them, you can tick the system that clear items players may have managed to take from a waystone's GUI using this setting.
@@ -366,7 +366,7 @@ You can **enable**, **disable** or **get** the current state of this setting usi
 
 </details>
 <details>
-<summary>Open Container Delay (compatibility for Paper)</summary>
+<summary>Open Container Delay (Paper compatibility)</summary>
 
 This setting allows you to adjust the minimal delay before a waystone trigger its "open" event when opened. This has been introduced to bypass [issue #13839](https://github.com/PaperMC/Paper/issues/13839) on Paper since its 26.1.2 build #17 version.
 
@@ -415,9 +415,9 @@ Same as above but for the **private visibility**:
 Same as above again, but for the **discover visibility**:
 
 ```
-/function pk_waystones:settings/permissions/change/visibility/private/true
-/function pk_waystones:settings/permissions/change/visibility/private/false
-/function pk_waystones:settings/permissions/change/visibility/private/get
+/function pk_waystones:settings/permissions/change/visibility/discover/true
+/function pk_waystones:settings/permissions/change/visibility/discover/false
+/function pk_waystones:settings/permissions/change/visibility/discover/get
 ```
 
 Finally you can also directly toggle or get all visibilily-based permissions at once:
@@ -475,7 +475,7 @@ You can **enable**, **disable** or **get** the current state of the permission u
 <details>
 <summary>Permission: Tp In Fight</summary>
 
-If disabled, this permission prevents players to teleport if they took a damage from a living entity (as source) in the last 15 seconds. It can be useful if you don't want players to escape a fight by using a waystone on PvP servers.
+If disabled, this permission prevents players to teleport if they took a damage from a living entity (as source) in the previous 15 seconds. It can be useful if you don't want players to escape a fight by using a waystone on PvP servers.
 This permission is enabled by default, meaning players can teleport at any moment.
 
 You can **enable**, **disable** or **get** the current state of the permission using these following commands respectively:
@@ -589,7 +589,7 @@ You can find the ids of waystones by granting yourself the manager role (using `
 
 </details>
 
-## Usable by any (non-op) player
+## Usable by any player
 
 <details>
 <summary>Hide locations from the waystones list</summary>
@@ -656,7 +656,7 @@ On server that use external tools like Paper, Spigot... some desynch can happen,
 <details> 
 <summary>Public hooks</summary>
 
-Public hooks are [function tags](<https://minecraft.wiki/w/Function_tag_(Java_Edition)>) which allow you to run your own functions before or after a specific event happen from the waystones data pack by adding them in the corresponding tag.
+Public hooks are [function tags](https://minecraft.wiki/w/Function_tag_(Java_Edition)) which allow you to run your own functions before or after a specific event happen from the waystones data pack by adding them in the corresponding tag.
 
 They have been added to help people wanting to introduce their own features without altering the original code, so the waystones data pack can be safely updated without the need of editing it back to introduce your own features every time you install another version.
 
@@ -665,59 +665,39 @@ Public hooks can be found in `data/pk_waystones/tags/function/public` and follow
 Here are listed public hooks:
 
 ---
-
-**gui*action*<after/before>**:  
-Triggers after/before an action is performed by clicking an item from a Waystones GUI.
-
+**gui_action_<after/before>**:  
+Triggers after/before an action is performed by clicking an item from a Waystones GUI.  
 - Context: Current controller (waystone marker entity), at itself.
 - The user has the `pk.current.player` tag.
-
 ---
-
-**gui*button_build*<after/before>**:  
-Triggers after/before a button (item data) is built to populate the Waystones GUI.
-
+**gui_button_build_<after/before>**:  
+Triggers after/before a button (item data) is built to populate the Waystones GUI.  
 - Context: Current controller (waystone marker entity), at itself.
 - The user has the `pk.current.player` tag.
-
 ---
-
-**waystone*close*<after/before>**:  
-Triggers after/before a player closes a waystones GUI.
-
+**waystone_close_<after/before>**:  
+Triggers after/before a player closes a waystones GUI.  
 - Context: Current controller (waystone marker entity), at itself.
 - The user has the `pk.current.player` tag.
-
 ---
-
-**waystone*open*<after/before>**:  
+**waystone_open_<after/before>**:  
 Triggers after/before a player opens a waystones GUI.
-
-- Context: The user who oppened the waystone (also have the `pk.current.player` tag), at the waystone's location aligned xyz.
+- Context: The user who oppened the waystone (also have the `pk.current.player` tag), at the waystone's location aligned xyz.  
 - The marker of the opened waystone can be found using `@e[type=marker,tag=pk.waystones.waystone.controller,dx=0,limit=1]`.
-
 ---
-
-**waystone*place*<after/before>**:  
-Triggers after/before a waystone is placed.
-
-- Context: Any, at the waystone's location aligned xyz.
+**waystone_place_<after/before>**:  
+Triggers after/before a waystone is placed.  
+- Context: Any, at the waystone's location aligned xyz. 
 - In the case the waystone is placed by a player, the context is this player.
 - In the "after" hook, the controlle of the placed waystone can be found using `@e[type=marker,tag=pk.waystones.waystone.controller,dx=0,limit=1]`.
-
 ---
-
-**waystone*remove*<after/before>**:  
-Triggers after/before a waystone is removed.
-
+**waystone_remove_<after/before>**:  
+Triggers after/before a waystone is removed.  
 - Context: Current controller (waystone marker entity), at itself.
-
 ---
-
-**waystone*replace*<after/before>**:  
-Triggers after/before a waystone is replaced (with the "recreating" feature).
-
-- Context: Any, at the waystone's location aligned xyz.
+**waystone_replace_<after/before>**:  
+Triggers after/before a waystone is replaced (with the "recreating" feature).  
+- Context: Any, at the waystone's location aligned xyz. 
 
 </details>
 
@@ -773,7 +753,7 @@ However, a **resources pack** providing models for Waystones items and GUI has b
 </details>
 
 <details>
-<summary>The texture of the block shows regular player heads, how can I fix that?</summary>
+<summary>The texture of the block shows regular player heads</summary>
 
 You need to be connected to the internet the first time you use a new type of waystone. The textures of the player heads that are used to create their looks are indeed loaded and cached on the client-side, from (old or current) players skins that are stored on a Mojang server.
 
@@ -784,7 +764,7 @@ If you accidentally used a content that required to be online the first time you
 </details>
 
 <details>
-<summary>Waystones said they are already used, how to fix it?</summary>
+<summary>Waystones show "already used"</summary>
 
 Waystones can stay locked if their block container didn't update their blockstate correctly when players closed them. Such issues can happen sometimes, especially on modified versions such as Paper or Spigot. In order to force waystones to unlock, there is a debug command:
 
